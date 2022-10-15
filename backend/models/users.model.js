@@ -46,51 +46,62 @@ const userSchema = new mongoose.Schema({
     experience: [{
         title: {
             type: String,
+            default: null
         },
         employment_type: {
             type: String,
+            default: null
         },
         company_name: {
             type: String,
+            default: null
         },
         location: {
             type: String,
+            default: null
         },
         start_date: {
             type: Date,
+            default: null
         },
         end_date: {
             type: Date,
+            default: null
         },
         industry: {
             type: String,
+            default: null
         },
         description: {
             type: String,
+            default: null
         },
     }],
-    eduction: [{
+    education: [{
         school: {
             type: String,
+            default: null
         },
         degree: {
             type: String,
+            default: null
         },
         field: {
             type: String,
+            default: null
         },
         start_date: {
             type: Date,
+            default: null
         },
         end_date: {
             type: Date,
+            default: null
         },
         grade: {
             type: String,
-        },
-        description: {
-            type: String,
-        },
+            default: null
+        }
     }]
 })
 
