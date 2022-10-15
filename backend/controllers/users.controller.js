@@ -17,6 +17,26 @@ const updateUser = async (req, res) => {
     .catch((err)=>res.status(400).send(err))
 }
 
+const updateExperience = async (req, res) => {
+    const {id, ...data} = req.body
+    User.findByIdAndUpdate(id,{
+        $push: {
+            "experience": {
+            title: data.title,
+            employment_type: data.employment_type,
+            company_name: data.company_name,
+            location: data.location,
+            start_date: data.start_date,
+            end_date: data.end_date,
+            industry: data.industry,
+            description: data.description,
+            }
+        },
+    })
+    .then((user)=>res.send(user))
+    .catch((err)=>res.status(400).send(err))
+}
+
 
 const getUsers = async (req, res) => {
     User.find()
@@ -25,5 +45,18 @@ const getUsers = async (req, res) => {
 }
 module.exports = {
     updateUser,
-    getUsers
+    getUsers,
+    updateExperience
 }
+
+
+// $push:{
+//     "education":{
+//         school: data.school,
+//         degree: data.degree,
+//         field: data.field,
+//         start_date: data.start_edu_date,
+//         end_date: data.end_edu_date,
+//         grade: data.grade,
+//     }
+// } 

@@ -15,6 +15,8 @@ const login = async (req, res)=>{
     const token = jwt.sign({email: user.email, name: user.name, userType: 1}, process.env.JWT_SECRET_KEY, {
         expiresIn: '1h'
     });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    console.log(decoded);
     res.status(200).json(token)
 }
 
