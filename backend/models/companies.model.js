@@ -40,7 +40,12 @@ const companySchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    jobs: []
+    jobs: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Job"
+        }
+    ]
 })
 
 const Company = mongoose.model('Company', companySchema);

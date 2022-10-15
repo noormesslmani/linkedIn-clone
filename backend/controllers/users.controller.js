@@ -85,7 +85,7 @@ const getUsers = async (req, res) => {
 const apply= async (req, res) => {
     const {id, ...data} = req.body 
     await Job.findByIdAndUpdate(data.job_id,{
-        $push:{  applicants: id} 
+        $push:{ applicants: id} 
     })
     User.findByIdAndUpdate(id,{
         $push:{ applications: data.job_id
