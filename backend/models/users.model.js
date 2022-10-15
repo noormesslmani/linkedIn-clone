@@ -55,12 +55,7 @@ const userSchema = new mongoose.Schema({
             default: null
         }
     }],
-    skills:[{
-        skill:{
-            type: String,
-            default: null
-        }
-    }],
+    skills:[],
     experience: [{
         title: {
             type: String,

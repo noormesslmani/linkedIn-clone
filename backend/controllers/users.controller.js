@@ -55,6 +55,15 @@ const updateEducation = async (req, res) => {
     .catch((err)=>res.status(400).send(err))
 }
 
+const updateSkills = async (req, res) => {
+    const {id, ...data} = req.body
+    User.findByIdAndUpdate(id,{
+        $push:{"skills":data.skill} 
+    })
+    .then((user)=>res.send(user))
+    .catch((err)=>res.status(400).send(err))
+}
+
 const followUser= async(req,res)=>{
     const {id, ...data} = req.body 
     User.findByIdAndUpdate(id,{
@@ -77,7 +86,8 @@ module.exports = {
     getUsers,
     updateExperience,
     updateEducation,
-    followUser
+    followUser,
+    updateSkills
 }
 
 
