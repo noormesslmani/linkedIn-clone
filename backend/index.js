@@ -13,6 +13,11 @@ app.use('/users', usersRoutes) //path extension for users
 const companiesRoutes = require('./routes/companies.routes');
 app.use('/companies', companiesRoutes) //path extension for users
 
+
+const jobsRoutes = require('./routes/jobs.routes');
+app.use('/jobs', jobsRoutes) //path extension for users
+
+
 //prot is in env
 app.listen(process.env.PORT, (err)=>{
     if(err) throw err;
