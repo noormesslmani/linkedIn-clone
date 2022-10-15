@@ -97,7 +97,7 @@ const apply= async (req, res) => {
 }
 
 const getApplications = async (req, res) => {
-    const {id} = req.body 
+    const {id} = req.params 
     try{
         const user = await User.findById(id).populate("applications")
         res.json(user);

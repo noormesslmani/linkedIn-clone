@@ -2,7 +2,7 @@ const User = require('../models/users.model');
 const Company = require('../models/companies.model');
 const Job = require('../models/jobs.model');
 const bcrypt = require('bcrypt');
-
+const mongoose = require('mongoose');
 
 
 const createJob = async (req, res) => {
@@ -25,6 +25,20 @@ const createJob = async (req, res) => {
     
 }
 
+const getJobs= async (req, res) => {
+    const {id} = req.query;
+    try{
+        const company = await Company.findById(id).populate("jobs")
+        res.json(company);
+    }catch(err){
+        console.log(req);
+        res.status(400).json({
+            message: err.message
+        })
+    }
+};
+
 module.exports = {
-    createJob
+    createJob,
+    getJobs
 }
