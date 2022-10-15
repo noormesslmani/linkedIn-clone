@@ -1,6 +1,6 @@
 const Company = require('../models/companies.model');
 const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const signupCompany = async (req, res)=>{
     const { email, password, name, city, country} = req.body;
@@ -21,6 +21,23 @@ const signupCompany = async (req, res)=>{
     }
 }
 
+const loginCompany = async (req, res)=>{
+    const {email, password} = req.body;
+    
+    const company = await Company.findOne({email}).select("+password");
+
+    if(!company) return res.status(404).json({message: "Invalid Credentials"});
+
+    const isMatch = bcrypt.compare(password, company.password);
+    if(!isMatch) return res.status(404).json({message: "Invalid Credentials"});
+
+    const token = jwt.sign({email: company.email, name: company.name}, process.env.JWT_SECRET_KEY, {
+        expiresIn: '1h'
+    });
+    res.status(200).json(token)
+}
+
 module.exports = {
-    signupCompany
+    signupCompany,
+    loginCompany
 }
