@@ -14,8 +14,8 @@ const updateUser = async (req, res) => {
         cover_photo: data.cover_photo,
         password: await bcrypt.hash(data.password, 10),   
     })
-    .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
 }
 
 const updateExperience = async (req, res) => {
@@ -34,8 +34,8 @@ const updateExperience = async (req, res) => {
             }
         },
     })
-    .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
 }
 
 
@@ -52,8 +52,8 @@ const updateEducation = async (req, res) => {
             grade: data.grade,}
         } 
     })
-    .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
 }
 
 const updateSkills = async (req, res) => {
@@ -61,8 +61,8 @@ const updateSkills = async (req, res) => {
     User.findByIdAndUpdate(id,{
         $push:{"skills":data.skill} 
     })
-    .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
 }
 
 const followUser= async(req,res)=>{
@@ -72,8 +72,8 @@ const followUser= async(req,res)=>{
             "users_follow":{user_id: data.user_id}
         } 
     })
-    .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
 }
 
 const getUsers = async (req, res) => {
@@ -89,13 +89,13 @@ const apply= async (req, res) => {
         } 
     })
     .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err))
+    .catch((err)=>res.status(400).json(err))
 }
 
 const getApplications = async (req, res) => {
     const {id} = req.body 
-    User.findById(id).populate("applications").then((user)=>res.send(user))
-    .catch((err)=>res.status(400).send(err));
+    User.findById(id).populate("applications").then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err));
   };
 
 module.exports = {
