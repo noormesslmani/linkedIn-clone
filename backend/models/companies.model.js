@@ -5,6 +5,17 @@ const companySchema = new mongoose.Schema({
         type: String,
         required: 'name is required'
     },
+    email: {
+        type: String,
+        required: 'email is required',
+        unique: true,
+        trim: true
+    },
+    password: {
+        type: String,
+        required: 'password is required',
+        select: false
+    },
     headers: {
         type: String,
         default: null
@@ -19,7 +30,7 @@ const companySchema = new mongoose.Schema({
     },
     about: {
         type: String,
-        required: 'about is required'
+        default: null
     },
     profile_picture: {
         type: String,
