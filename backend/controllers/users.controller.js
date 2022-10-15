@@ -54,16 +54,30 @@ const updateEducation = async (req, res) => {
     .then((user)=>res.send(user))
     .catch((err)=>res.status(400).send(err))
 }
+
+const followUser= async(req,res)=>{
+    const {id, ...data} = req.body 
+    User.findByIdAndUpdate(id,{
+        $push:{ 
+            "users_follow":{user_id: data.user_id}
+        } 
+    })
+    .then((user)=>res.send(user))
+    .catch((err)=>res.status(400).send(err))
+}
+
 const getUsers = async (req, res) => {
     User.find()
     .then((user)=>res.status(200).json(user))
     .catch((err)=>res.status(400).json(err))
 }
+
 module.exports = {
     updateUser,
     getUsers,
     updateExperience,
-    updateEducation
+    updateEducation,
+    followUser
 }
 
 
