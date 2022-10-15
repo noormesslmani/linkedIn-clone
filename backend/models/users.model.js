@@ -115,7 +115,13 @@ const userSchema = new mongoose.Schema({
             type: String,
             default: null
         }
-    }]
+    }],
+    applications: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Job"
+      }
+    ]
 })
 
 const User = mongoose.model('User', userSchema);

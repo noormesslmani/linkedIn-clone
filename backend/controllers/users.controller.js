@@ -1,4 +1,5 @@
 const User = require('../models/users.model');
+const Job = require('../models/jobs.model');
 const bcrypt = require('bcrypt');
 
 const updateUser = async (req, res) => {
@@ -81,13 +82,24 @@ const getUsers = async (req, res) => {
     .catch((err)=>res.status(400).json(err))
 }
 
+const apply= async (req, res) => {
+    const {id, ...data} = req.body 
+    User.findByIdAndUpdate(id,{
+        $push:{ applications: data.job_id
+        } 
+    })
+    .then((user)=>res.send(user))
+    .catch((err)=>res.status(400).send(err))
+}
+
 module.exports = {
     updateUser,
     getUsers,
     updateExperience,
     updateEducation,
     followUser,
-    updateSkills
+    updateSkills,
+    apply
 }
 
 
