@@ -82,6 +82,19 @@ const getUsers = async (req, res) => {
     .catch((err)=>res.status(400).json(err))
 }
 
+const getUser= async (req, res) => {
+    const {id} = req.query;
+    try{
+        const user = await User.findById(id)
+        res.json(user);
+    }catch(err){
+        console.log(req);
+        res.status(400).json({
+            message: err.message
+        })
+    }
+};
+
 const apply= async (req, res) => {
     const {id, ...data} = req.body 
     await Job.findByIdAndUpdate(data.job_id,{
@@ -111,6 +124,7 @@ const getApplications = async (req, res) => {
 module.exports = {
     updateUser,
     getUsers,
+    getUser,
     updateExperience,
     updateEducation,
     followUser,
