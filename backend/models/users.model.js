@@ -43,6 +43,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: null
     },
+    users_follow:[{
+        user_id:{
+            type: String,
+            default: null
+        }
+    }],
+    companies_follow:[{
+        company_id:{
+            type: String,
+            default: null
+        }
+    }],
     experience: [{
         title: {
             type: String,
