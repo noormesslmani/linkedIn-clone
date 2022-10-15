@@ -40,20 +40,7 @@ const companySchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    jobs: [{
-        title: {
-            type: String,
-        },
-        employment_type: {
-            type: String,
-        },
-        experience: {
-            type: String,
-        },
-        details: {
-            type: String,
-        }
-    }],
+    jobs: []
 })
 
 const Company = mongoose.model('Company', companySchema);

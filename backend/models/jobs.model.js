@@ -5,17 +5,11 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: 'name is required'
     },
-    company: [{
-        company_id:{
-            type: String,
-            required: true
-        },
-        comany_name:{
-            type: String,
-            required: true
-        }
-    }],
-    job_type: {
+    company_id:{
+        type: String,
+        required: 'company is required'
+    },
+    employment_type: {
         type: String,
         required: 'job_type is required',
     },
