@@ -1,9 +1,10 @@
 const {Router} = require('express');
-const {updateUser, getUsers, updateExperience, updateEducation, followUser, updateSkills, apply} = require('../controllers/users.controller')
+const {updateUser, getUsers, updateExperience, updateEducation, followUser, updateSkills, apply,getApplications} = require('../controllers/users.controller')
 const router = Router();
 
 router.put('/', updateUser);
 router.put('/apply', apply);
+router.get('/apply', getApplications);
 router.put('/skills', updateSkills);
 router.put('/follow', followUser);
 router.put('/experience', updateExperience);

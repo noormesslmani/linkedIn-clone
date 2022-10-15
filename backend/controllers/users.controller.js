@@ -92,6 +92,12 @@ const apply= async (req, res) => {
     .catch((err)=>res.status(400).send(err))
 }
 
+const getApplications = async (req, res) => {
+    const {id} = req.body 
+    User.findById(id).populate("applications").then((user)=>res.send(user))
+    .catch((err)=>res.status(400).send(err));
+  };
+
 module.exports = {
     updateUser,
     getUsers,
@@ -99,7 +105,8 @@ module.exports = {
     updateEducation,
     followUser,
     updateSkills,
-    apply
+    apply,
+    getApplications
 }
 
 
