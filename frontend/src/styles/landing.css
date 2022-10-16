@@ -43,3 +43,10 @@ form{
 .error-msg{
     color: red;
 }
+.signin-link{
+    color: #8344cc;
+    text-decoration: none;
+}
+.signin-link:hover{
+    text-decoration: underline;
+}

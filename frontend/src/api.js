@@ -4,8 +4,7 @@ let config = {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}`},
 };
 
-export default function registerUser(email, password, firstname, lastname){
-    
+export default function registerUser(email, password, firstname, lastname,setTakenEmail){
     axios.post(`${baseURL}/auth/user-signup`, {
         email: email,
         password: password,
@@ -13,10 +12,13 @@ export default function registerUser(email, password, firstname, lastname){
         last_name: lastname
     })
         .then(function (response) {
+        
             localStorage.setItem('token',response.data.token)
+            localStorage.setItem('me',response.data.user)
             return (response.data)
         })
         .catch(function (error) {
+            setTakenEmail(true)
             console.log(error);
         });
 }

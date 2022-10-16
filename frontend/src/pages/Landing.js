@@ -1,6 +1,6 @@
 import '../styles/landing.css'
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputSignup from '../components/InputSignup';
 import ButtonSignup from '../components/ButtonSignup';
 import registerUser from '../api';
@@ -14,10 +14,13 @@ function Landing() {
   const [firstname,setFirstname]=useState('');
   const [lastname,setLastname]=useState('');
   const [enterEmail,setEnteremail]=useState(false);
+  const [takenEmail,setTakenEmail]=useState(false);
   const [enterPassword,setEnterPassword]=useState(false);
   const [passwordLength,setPasswordLength]=useState(false);
   const [enterFirstName,setEnterFirstName]=useState(false);
   const [enterLastName,setEnterLastName]=useState(false);
+  
+
   if(page==2){
     setPlaceholders(['First Name','Last Name'])
   }
@@ -28,6 +31,7 @@ function Landing() {
     setPasswordLength(false)
     setEnterFirstName(false)
     setEnterLastName(false)
+    setTakenEmail(false)
     if (page=='one')
     { 
       if(email==''){
@@ -52,7 +56,8 @@ function Landing() {
         setEnterLastName(true)
       }
       else{
-        registerUser(email, password, firstname, lastname)
+        console.log('isjdjd')
+        registerUser(email, password, firstname, lastname, setTakenEmail)
       }
     }
   }
@@ -64,6 +69,7 @@ function Landing() {
             <div className='form'>
                 <p className='registration-title'>Join the biggest professional community</p>
                 <form className='register-form'>
+                  {takenEmail?<p className='error-msg'>Someone's already using that email</p>:<></>}
                   {enterEmail?<p className='error-msg'>Please enter your email</p>:<></>}
                   {enterPassword?<p className='error-msg'>Please enter your password</p>:<></>}
                   {enterFirstName?<p className='error-msg'>Please enter your firstname</p>:<></>}
@@ -71,9 +77,8 @@ function Landing() {
                   {passwordLength?<p className='error-msg'>Password must be 8 characters or more</p>:<></>}
                     <InputSignup placeholders={placeholders} page={page} setEmail={setEmail} setPassword={setPassword} setFirstname={setFirstname} setLastname={setLastname}/>
                     <ButtonSignup handleClick={handleClick} buttonLabel={buttonLabel} />
-                    <div className='switch-to-signin'>Already on LinkedIn? Sign in</div>
+                    <div className='switch-to-signin'>Already on LinkedIn? <Link className='signin-link' to={'/user-signin'}>Sign in</Link></div>
                 </form>
-                
             </div>
             <img></img>
         </section>

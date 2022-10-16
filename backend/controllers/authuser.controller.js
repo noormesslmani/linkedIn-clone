@@ -32,9 +32,9 @@ const signup = async (req, res)=>{
         const token = jwt.sign({email: user.email, id: user.id}, process.env.JWT_SECRET_KEY, {
             expiresIn: '2h'
         });
-        res.json({token})
+        res.json({user:user, token:token})
     }catch(err){
-        res.json({
+        res.status(400).json({
             message: err.message
         })
     }
