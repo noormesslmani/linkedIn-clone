@@ -13,8 +13,8 @@ router.get('/applications',authMiddleware, getApplications);
 
 router.get('/jobs',authMiddleware, getFollowingJobs);
 
-router.put('/follow-user', followUser);
-router.put('/follow-company', followCompany);
+router.put('/follow-user', authMiddleware, followUser);
+router.put('/follow-company',authMiddleware, followCompany);
 
 
 router.get('/me',authMiddleware, me);

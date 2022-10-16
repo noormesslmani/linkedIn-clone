@@ -71,16 +71,16 @@ const updateSkills = async (req, res) => {
 }
 
 const followUser= async(req,res)=>{
-    const {id, ...data} = req.body 
-    User.findByIdAndUpdate(id,{
+    const data = req.body 
+    User.findOneAndUpdate({ email: req.user.email },{
         $push:{ users_follow: data.user_id} 
     })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
 const followCompany= async(req,res)=>{
-    const {id, ...data} = req.body 
-    User.findByIdAndUpdate(id,{
+    const data = req.body 
+    User.findOneAndUpdate({ email: req.user.email },{
         $push:{ companies_follow: data.company_id} 
     })
     .then((user)=>res.json(user))
@@ -131,9 +131,8 @@ const getApplications = async (req, res) => {
 
 const getFollowingJobs = async (req, res) => {
     try{
-        
         const user = await User.findOne({ email: req.user.email }).populate({
-            path: 'companies_follow',
+            path:'companies_follow',
             populate: { path: 'jobs' }
         }).select('companies_follow');
         res.json(user);
