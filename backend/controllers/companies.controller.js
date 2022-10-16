@@ -37,8 +37,25 @@ const getJobs= async (req, res) => {
         })
     }
 };
+ 
+const getApplicants=async (req, res) => {
+    try{
+        const company = await Company.findOne({ email: req.company.email }).populate({
+            path:'jobs',
+            populate: { path: 'applicants' }
+        })
+        res.json(company);
+    }catch(err){
+        console.log(req);
+        res.status(400).json({
+            message: err.message
+        })
+    }
+};
+ 
 
 module.exports = {
     createJob,
-    getJobs
+    getJobs,
+    getApplicants
 }
