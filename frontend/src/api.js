@@ -3,6 +3,7 @@ const baseURL='http://localhost:3000'
 let config = {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}`},
 };
+
 export default function registerUser(email, password, firstname, lastname){
     
     axios.post(`${baseURL}/auth/user-signup`, {
@@ -12,7 +13,7 @@ export default function registerUser(email, password, firstname, lastname){
         last_name: lastname
     })
         .then(function (response) {
-            console.log(response.data)
+            localStorage.setItem('token',response.data.token)
             return (response.data)
         })
         .catch(function (error) {
