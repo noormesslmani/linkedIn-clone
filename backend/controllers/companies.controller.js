@@ -6,16 +6,16 @@ const mongoose = require('mongoose');
 
 
 const createJob = async (req, res) => {
-    const {title, company_id , employment_type, experience, details} = req.body;
+    const {title, employment_type, experience, details} = req.body;
     try{
         const job = new Job();
         job.title = title; 
-        job.company_id = company_id;
+        job.company_id = req.company._id;
         job.employment_type = employment_type;
         job.experience= experience,
         job.details= details
         await job.save();
-        await Company.findByIdAndUpdate(company_id,{$push:{jobs:job._id} });
+        await Company.findOneAndUpdate({ email: req.company.email },{$push:{jobs:job._id} });
         res.json(job);
     }catch(err){
         res.status(400).json({

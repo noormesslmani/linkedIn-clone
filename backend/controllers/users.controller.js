@@ -46,7 +46,7 @@ const updateExperience = async (req, res) => {
 
 const updateEducation = async (req, res) => {
     const data = req.body
-    User.findOneAndUpdate({ email: req.user.email },{
+    User.findOneAndUpdate({email: req.user.email },{
         $push:{
             "education":{
             school: data.school,
