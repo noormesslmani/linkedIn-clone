@@ -68,9 +68,7 @@ const updateSkills = async (req, res) => {
 const followUser= async(req,res)=>{
     const {id, ...data} = req.body 
     User.findByIdAndUpdate(id,{
-        $push:{ 
-            "users_follow":{user_id: data.user_id}
-        } 
+        $push:{ users_follow: data.user_id} 
     })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
