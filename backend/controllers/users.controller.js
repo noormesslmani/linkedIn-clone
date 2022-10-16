@@ -130,9 +130,9 @@ const getApplications = async (req, res) => {
 };
 
 const getFollowingJobs = async (req, res) => {
-    const {id} = req.query 
     try{
-        const user = await User.findById(id).populate({
+        
+        const user = await User.findOne({ email: req.user.email }).populate({
             path: 'companies_follow',
             populate: { path: 'jobs' }
         }).select('companies_follow');

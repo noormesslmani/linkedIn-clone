@@ -11,7 +11,7 @@ router.put('/skills',authMiddleware, updateSkills);
 router.put('/apply', authMiddleware,apply);
 router.get('/applications',authMiddleware, getApplications);
 
-router.get('/jobs/:id', getFollowingJobs);
+router.get('/jobs',authMiddleware, getFollowingJobs);
 
 router.put('/follow-user', followUser);
 router.put('/follow-company', followCompany);
