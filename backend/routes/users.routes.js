@@ -8,16 +8,16 @@ router.put('/experience',authMiddleware, updateExperience);
 router.put('/education',authMiddleware, updateEducation);
 router.put('/skills',authMiddleware, updateSkills);
 
-router.put('/apply', apply);
-router.get('/me',authMiddleware, me);
-router.get('/apply', getApplications);
+router.put('/apply', authMiddleware,apply);
+router.get('/applications',authMiddleware, getApplications);
+
 router.get('/jobs/:id', getFollowingJobs);
 
 router.put('/follow-user', followUser);
 router.put('/follow-company', followCompany);
 
 
-
+router.get('/me',authMiddleware, me);
 router.get('/',authMiddleware, getUsers);
 router.get('/:id', getUser);
 module.exports = router;

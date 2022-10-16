@@ -106,23 +106,21 @@ const getUser= async (req, res) => {
 };
 
 const apply= async (req, res) => {
-    const {id, ...data} = req.body 
+    const data = req.body 
     await Job.findByIdAndUpdate(data.job_id,{
-        $push:{ applicants: id} 
+        $push:{ applicants: req.user._id} 
     })
-    User.findByIdAndUpdate(id,{
+    User.findOneAndUpdate({ email: req.user.email },{
         $push:{ applications: data.job_id
         } 
     })
     .then((user)=>res.send(user))
-    .catch((err)=>res.status(400).json(err))
-    
+    .catch((err)=>res.status(400).json(err))  
 }
 
 const getApplications = async (req, res) => {
-    const {id} = req.params 
     try{
-        const user = await User.findById(id).populate("applications")
+        const user = await User.findOne({ email: req.user.email }).populate("applications")
         res.json(user);
     }catch(err){
         res.status(400).json({
