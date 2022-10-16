@@ -17,7 +17,10 @@ const updateUser = async (req, res) => {
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
-
+const me= async(req, res)=>{
+    const user = req.user;
+    res.json({user: user})
+}
 const updateExperience = async (req, res) => {
     const {id, ...data} = req.body
     User.findByIdAndUpdate(id,{
@@ -152,7 +155,8 @@ module.exports = {
     apply,
     getApplications,
     followCompany,
-    getFollowingJobs
+    getFollowingJobs,
+    me
 }
 
 
