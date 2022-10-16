@@ -3,8 +3,9 @@ const Job = require('../models/jobs.model');
 const bcrypt = require('bcrypt');
 
 const updateUser = async (req, res) => {
-    const {id, ...data} = req.body
-    User.findByIdAndUpdate(id,{
+    const {data} = req.body
+    console.log(req.user.email)
+    User.findOneAndUpdate({ email: req.user.email },{
         first_name: data.first_name,
         last_name: data.last_name,
         headers: data.headers,
@@ -22,8 +23,9 @@ const me= async(req, res)=>{
     res.json({user: user})
 }
 const updateExperience = async (req, res) => {
-    const {id, ...data} = req.body
-    User.findByIdAndUpdate(id,{
+    const data = req.body
+    console.log(req.user.email)
+    User.findOneAndUpdate({ email: req.user.email },{
         $push: {
             "experience": {
             title: data.title,
@@ -43,8 +45,8 @@ const updateExperience = async (req, res) => {
 
 
 const updateEducation = async (req, res) => {
-    const {id, ...data} = req.body
-    User.findByIdAndUpdate(id,{
+    const data = req.body
+    User.findOneAndUpdate({ email: req.user.email },{
         $push:{
             "education":{
             school: data.school,
@@ -60,8 +62,8 @@ const updateEducation = async (req, res) => {
 }
 
 const updateSkills = async (req, res) => {
-    const {id, ...data} = req.body
-    User.findByIdAndUpdate(id,{
+    const data = req.body
+    User.findOneAndUpdate({ email: req.user.email },{
         $push:{"skills":data.skill} 
     })
     .then((user)=>res.json(user))

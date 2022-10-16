@@ -4,15 +4,20 @@ const {updateUser, getUsers, me, updateExperience, updateEducation, followUser, 
 const router = Router();
 
 router.put('/',authMiddleware, updateUser);
+router.put('/experience',authMiddleware, updateExperience);
+router.put('/education',authMiddleware, updateEducation);
+router.put('/skills',authMiddleware, updateSkills);
+
 router.put('/apply', apply);
 router.get('/me',authMiddleware, me);
 router.get('/apply', getApplications);
 router.get('/jobs/:id', getFollowingJobs);
-router.put('/skills', updateSkills);
+
 router.put('/follow-user', followUser);
 router.put('/follow-company', followCompany);
-router.put('/experience', updateExperience);
-router.put('/education', updateEducation);
+
+
+
 router.get('/',authMiddleware, getUsers);
 router.get('/:id', getUser);
 module.exports = router;
