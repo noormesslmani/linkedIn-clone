@@ -19,5 +19,5 @@ router.put('/follow-company',authMiddleware, followCompany);
 
 router.get('/me',authMiddleware, me);
 router.get('/',authMiddleware, getUsers);
-router.get('/:id', getUser);
+router.get('/:id',authMiddleware, getUser);
 module.exports = router;
