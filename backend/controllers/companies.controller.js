@@ -26,9 +26,9 @@ const createJob = async (req, res) => {
 }
 
 const getJobs= async (req, res) => {
-    const {id} = req.query;
+    console.log(req.company.email)
     try{
-        const company = await Company.findById(id).populate("jobs")
+        const company = await Company.findOne({ email: req.company.email }).populate("jobs")
         res.json(company);
     }catch(err){
         console.log(req);

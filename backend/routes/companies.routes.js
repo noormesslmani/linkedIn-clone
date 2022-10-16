@@ -5,5 +5,5 @@ const {createJob, getJobs} = require('../controllers/companies.controller')
 
 
 router.post('/',authMiddleware, createJob);
-router.get('/:id', getJobs);
+router.get('/jobs',authMiddleware, getJobs);
 module.exports = router;
