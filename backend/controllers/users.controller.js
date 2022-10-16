@@ -76,6 +76,15 @@ const followUser= async(req,res)=>{
     .catch((err)=>res.status(400).json(err))
 }
 
+const followCompany= async(req,res)=>{
+    const {id, ...data} = req.body 
+    User.findByIdAndUpdate(id,{
+        $push:{ companies_follow: data.company_id} 
+    })
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
+}
+
 const getUsers = async (req, res) => {
     User.find()
     .then((user)=>res.status(200).json(user))
@@ -130,7 +139,8 @@ module.exports = {
     followUser,
     updateSkills,
     apply,
-    getApplications
+    getApplications,
+    followCompany
 }
 
 

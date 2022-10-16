@@ -46,12 +46,6 @@ const userSchema = new mongoose.Schema({
             default: null
         }
     }],
-    companies_follow:[{
-        company_id:{
-            type: String,
-            default: null
-        }
-    }],
     skills:[],
     experience: [{
         title: {
@@ -118,6 +112,12 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Job"
       }
+    ],
+    companies_follow: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Company"
+        }
     ]
 })
 
