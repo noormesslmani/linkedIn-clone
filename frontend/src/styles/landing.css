@@ -1,7 +1,7 @@
 .landing-page{
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 40px;
 }
 section{
     display: flex;
@@ -21,12 +21,12 @@ form{
     flex-direction: column;
     width: 400px;
 }
-.input-signup{
+.input-signup, .input-signin{
     width: 100%;
     height: 40px;
     margin-bottom: 10px;
 }
-.btn-signup{
+.btn-signup, .btn-signin{
     width:100%;
     height: 50px;
     background-color:  #006097;
@@ -36,6 +36,7 @@ form{
     cursor: pointer;
     font-size: 24px;
 }
+
 .switch-to-signin{
     align-self: center;
     margin-top: 40px;
@@ -47,6 +48,30 @@ form{
     color: #8344cc;
     text-decoration: none;
 }
+.Signin-page{
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    padding: 10px;
+    box-sizing: border-box;
+}
 .signin-link:hover{
     text-decoration: underline;
+}
+.landing-image{
+    width:650px;
+}
+.logo{
+    height:100px;
+    width: 150px;
+}
+.signin-form{
+    display: flex;
+    flex-direction: column;
+    width:320px;
+    padding: 20px;
+    align-self: center;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

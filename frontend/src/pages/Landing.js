@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import InputSignup from '../components/InputSignup';
 import ButtonSignup from '../components/ButtonSignup';
-import registerUser from '../api';
+import {registerUser} from '../api';
+import image from '../assets/landing-img.svg'
+import logo from '../assets/Linkedin-Logo.png'
 function Landing() {
   const navigate = useNavigate();
   const [page,setPage]=useState('one');
@@ -56,7 +58,6 @@ function Landing() {
         setEnterLastName(true)
       }
       else{
-        console.log('isjdjd')
         registerUser(email, password, firstname, lastname, setTakenEmail)
       }
     }
@@ -64,7 +65,9 @@ function Landing() {
 
   return (
     <div className='landing-page'>
-        <nav></nav>
+        <nav className='landing-nav' >
+          <img src={logo} className='logo' />
+        </nav>
         <section>
             <div className='form'>
                 <p className='registration-title'>Join the biggest professional community</p>
@@ -80,7 +83,7 @@ function Landing() {
                     <div className='switch-to-signin'>Already on LinkedIn? <Link className='signin-link' to={'/user-signin'}>Sign in</Link></div>
                 </form>
             </div>
-            <img></img>
+            <img src={image} alt='image' className='landing-image' />
         </section>
     </div>
   );
