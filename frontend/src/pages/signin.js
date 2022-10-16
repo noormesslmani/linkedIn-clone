@@ -5,6 +5,7 @@ import ButtonSignup from '../components/ButtonSignup';
 import logo from '../assets/Linkedin-Logo.png'
 import {userLogIn} from '../api';
 function UserSignin(){
+    const navigate = useNavigate();
     const [buttonLabel,setButtonLabel]=useState('Sign in');
     const [enterEmail,setEnterEmail]=useState(false);
     const [enterPassword,setEnterPassword]=useState(false);
@@ -17,6 +18,9 @@ function UserSignin(){
         if(document.getElementById('email').value){
             if(document.getElementById('pass').value){
                 userLogIn(document.getElementById('email').value,document.getElementById('pass').value,setInvalidAccount)
+                if(invalidAccount==false){
+                    navigate('/user-home')
+                }
             }
             else{
                 setEnterPassword(true)

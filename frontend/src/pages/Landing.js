@@ -7,7 +7,6 @@ import {registerUser} from '../api';
 import image from '../assets/landing-img.svg'
 import logo from '../assets/Linkedin-Logo.png'
 function Landing() {
-  const navigate = useNavigate();
   const [page,setPage]=useState('one');
   const [buttonLabel,setButtonLabel]=useState('Agree & Join');
   const [placeholders,setPlaceholders]=useState(['Email','Password(8+ characters)']);

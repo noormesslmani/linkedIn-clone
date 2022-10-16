@@ -15,6 +15,7 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
         
             localStorage.setItem('token',response.data.token)
             localStorage.setItem('me',response.data.user)
+            console.log(localStorage)
             return (response.data)
         })
         .catch(function (error) {
@@ -23,8 +24,6 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
 }
 
 function userLogIn(email, password,setInvalidAccount){
-    console.log(email)
-    console.log(password)
     axios.post(`${baseURL}/auth/user-login`, {
         email: email,
         password: password,
@@ -32,6 +31,8 @@ function userLogIn(email, password,setInvalidAccount){
         .then(function (response) {
             localStorage.setItem('token',response.data.token)
             localStorage.setItem('me',response.data.user)
+            console.log(response.data)
+           
             return (response.data)
         })
         .catch(function (error) {
