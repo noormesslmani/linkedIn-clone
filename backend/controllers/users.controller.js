@@ -73,7 +73,6 @@ const followUser= async(req,res)=>{
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
-
 const followCompany= async(req,res)=>{
     const {id, ...data} = req.body 
     User.findByIdAndUpdate(id,{
@@ -82,7 +81,6 @@ const followCompany= async(req,res)=>{
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
-
 const getUsers = async (req, res) => {
     User.find()
     .then((user)=>res.status(200).json(user))
@@ -128,6 +126,21 @@ const getApplications = async (req, res) => {
     }
 };
 
+const getFollowingJobs = async (req, res) => {
+    const {id} = req.query 
+    try{
+        const user = await User.findById(id).populate({
+            path: 'companies_follow',
+            populate: { path: 'jobs' }
+        }).select('companies_follow');
+        res.json(user);
+    }catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
+};
+
 module.exports = {
     updateUser,
     getUsers,
@@ -138,7 +151,8 @@ module.exports = {
     updateSkills,
     apply,
     getApplications,
-    followCompany
+    followCompany,
+    getFollowingJobs
 }
 
 
