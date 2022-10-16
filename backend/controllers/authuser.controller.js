@@ -13,7 +13,7 @@ const login = async (req, res)=>{
     if(!isMatch) return res.status(404).json({message: "Invalid Credentials"});
 
     const token = jwt.sign({email: user.email, id: user.id}, process.env.JWT_SECRET_KEY, {
-        expiresIn: '1h'
+        expiresIn: '2h'
     });
     res.status(200).json(token)
 }
@@ -29,9 +29,12 @@ const signup = async (req, res)=>{
         user.email = email;
         user.password = await bcrypt.hash(password, 10);
         await user.save();
-        res.json(user)
+        const token = jwt.sign({email: user.email, id: user.id}, process.env.JWT_SECRET_KEY, {
+            expiresIn: '2h'
+        });
+        res.json({token})
     }catch(err){
-        res.status(400).json({
+        res.json({
             message: err.message
         })
     }
