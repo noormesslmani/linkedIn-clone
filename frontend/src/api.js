@@ -40,18 +40,19 @@ function userLogIn(email, password,setInvalidAccount){
             console.log(error);
         });
 }
-function getJobs(){
-    axios.get(`${baseURL}/jobs`, config)
-        .then(function (response) {
-            console.log(response.data)
-            return (response.data)
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
+// function getJobs(setJobs){
+//     axios.get(`${baseURL}/jobs`, config)
+//         .then(function (response) {
+//             console.log(response.data)
+//             setJobs(response.data)
+//             return (response.data)
+//         })
+//         .catch(function (error) {
+//             console.log(error);
+//         });
+// }
 export{
     userLogIn,
     registerUser,
-    getJobs
+    
 }
