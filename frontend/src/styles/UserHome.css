@@ -163,14 +163,10 @@ hr{
     margin: 10px 0px;
 }
 .written-details{
-    display: flex;
-    flex-direction: column;
-    height: 100px;
+    display: block;
+    line-height: 0.5; 
+    font-size: 12px;
 }
-.detail{
-    line-height: 1px;
-}
-
 .add-modal{
     position: fixed; 
     z-index: 100; 

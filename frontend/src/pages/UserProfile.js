@@ -15,11 +15,13 @@ function UserProfile(){
     const experience= info.experience
     const education = info.education
     const skills= info.skills
- 
+    const [showExpModal, setShowExpModal]=useState(false)
     const handleEdu=()=>{
 
     }
-    const handleExp=()=>{}
+    const handleExp=()=>{
+        setShowExpModal(true)
+    }
     const handleSkills=()=>{}
     return (
         <>
@@ -46,8 +48,7 @@ function UserProfile(){
                             <div className='written-details'>
                                 <h4>{exp.title}</h4>
                                 <p className='detail'>{exp.company_name}</p>
-                                <p className='detail'>{exp.start_date}</p>
-                                <p className='detail'>{exp.end_date}</p>
+                                <p className='detail'>{exp.start_date} {exp.end_date}</p>
                                 <p className='detail'>{exp.location}</p>
                             </div>
                         </div>
@@ -83,7 +84,8 @@ function UserProfile(){
                 </div>
              </div>
             </section>
-            <AddExp/>
+            {showExpModal?<AddExp setShowExpModal={setShowExpModal}/>:<></>}
+            
         </>
         
     );

@@ -51,7 +51,16 @@ function apply(id){
         });
 }
 function addExperience(title, type,company,startMonth,startYear,endMonth,endYear,location,industry){
-    
+    axios.put(`${baseURL}/users/experience`, {title: title, employment_type: type,company_name: company,start_month: startMonth,start_year: startYear,end_month: endMonth,end_year: endYear,location: location,industry: industry}
+    , config)
+    .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data))
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
 
 export{
