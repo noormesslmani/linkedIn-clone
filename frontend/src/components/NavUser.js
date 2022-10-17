@@ -9,7 +9,7 @@ export default function NavUser(){
     return( 
         <nav className='nav-bar'>
             <div className='right-side'>
-                <img src={logo} className='logo'/>
+                <img src={logo} className='logonav'/>
                 <input placeholder='Search' className='search-input'></input>
             </div>
             <div className='left-side'>

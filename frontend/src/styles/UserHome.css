@@ -9,7 +9,7 @@
 .right-side, .left-side{
     display: flex;
 }
-.logo{
+.logonav{
     width:40px;
     height: 40px;
 }
@@ -108,4 +108,53 @@ hr{
 }
 .easy-apply-btn:active{
     scale: 0.9;
+}
+/*profile*/
+.profile-info{
+    width:750px;
+    background-color: white;
+    display: flex;
+    flex-direction: column; 
+    border: none;
+    border-radius: 20px; 
+}
+.header{
+    position: relative;
+    width: 100%;
+}
+.cover-photo{
+    height: 300px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+}
+.profile-photo{
+    position: absolute;
+    z-index: 100;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top:220px;
+    left:60px;
+}
+.full_name{
+    margin-top: 80px;
+    margin-left: 30px;
+}
+.education, .experience, .skills{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.experience-row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.add-experience{
+    width: 40px;
+    height: 40px;
+    color: grey;
+    align-self: center;
+    cursor: pointer;
 }

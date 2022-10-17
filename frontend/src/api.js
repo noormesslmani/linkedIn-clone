@@ -14,7 +14,7 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
         .then(function (response) {
         
             localStorage.setItem('token',response.data.token)
-            localStorage.setItem('me',response.data.user)
+            localStorage.setItem('me',JSON.stringify(response.data.user))
             console.log(localStorage)
             return (response.data)
         })
@@ -30,7 +30,7 @@ function userLogIn(email, password,setInvalidAccount){
     })
         .then(function (response) {
             localStorage.setItem('token',response.data.token)
-            localStorage.setItem('me',response.data.user)
+            localStorage.setItem('me',JSON.stringify(response.data.user))
             console.log(response.data)
            
             return (response.data)
