@@ -6,6 +6,7 @@ import JobCard from '../components/JobCard';
 import axios from 'axios';
 const baseURL='http://localhost:3000'
 function UserHome(){
+    console.log(localStorage.getItem("token").split(" "))
     const [jobs,setJobs]=useState([]);
     useEffect(() => {
         let config = {
@@ -13,7 +14,6 @@ function UserHome(){
         };
         axios.get(`${baseURL}/jobs`, config)
         .then(function (response) {
-            console.log(response.data)
             setJobs(response.data)
             return (response.data)
         })

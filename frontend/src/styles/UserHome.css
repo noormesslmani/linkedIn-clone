@@ -2,6 +2,9 @@
     padding: 7px 200px 7px 60px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    height: 20px;
 }
 .right-side, .left-side{
     display: flex;
@@ -32,13 +35,15 @@
 }
 .job-card{
     display: flex;
+    flex-direction: column;
     width:60%;
+    margin:10px;
 }
 .jobs{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    padding-top: 40px;
     width: 100vw;
     box-sizing: border-box;
     background-color:  #f3f2ef;;
@@ -54,4 +59,23 @@
     background-color: white;
     border: 1px solid gainsboro;
     border-radius: 20px;
+}
+.company-info{
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    font-size: 13px;
+    display: block;
+    line-height: 1px;
+}
+.title{
+    font-size: 15px;
+}
+.description{
+    display: flex;
+}
+hr{
+   width: 400px;
+   align-self: center;
 }
