@@ -9,6 +9,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import cover from '../assets/bg.webp'
 import profile from '../assets/blank-profile.webp'
 import image from '../assets/original.png';
+import AddExp from '../components/ExpModal';
 function UserProfile(){
     const info = JSON.parse(localStorage.me)
     const experience= info.experience
@@ -82,6 +83,7 @@ function UserProfile(){
                 </div>
              </div>
             </section>
+            <AddExp/>
         </>
         
     );
