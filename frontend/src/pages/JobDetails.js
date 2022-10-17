@@ -6,10 +6,13 @@ import axios from 'axios';
 import { useLocation} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faSuitcase, faBell } from '@fortawesome/free-solid-svg-icons'
-const baseURL='http://localhost:3000'
+import {apply} from '../api';
 function JobDetails(){
     const { state } = useLocation();
-    console.log(state)
+    const handleClick=(e)=>{
+        e.preventDefault()
+        apply(state.job._id)
+    }
     return (
         <>
             <NavUser/>
@@ -21,7 +24,7 @@ function JobDetails(){
                         <FontAwesomeIcon icon={faSuitcase} className='suitCase'/>
                         <p>{state.job.employment_type}</p>
                     </div>
-                    <button className='easy-apply-btn' >Easy Apply</button>
+                    <button className='easy-apply-btn' onClick={handleClick}>Easy Apply</button>
                     <h3>Job Description</h3>
                     <p>{state.job.details}</p>
                 </div>
