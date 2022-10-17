@@ -185,22 +185,52 @@ hr{
     padding: 30px;
     border: 1px solid #888;
     width: 50%; 
-    height: fit-content;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .exp-details-row>label{
+    font-size: 14px;
+    margin-bottom: 2px;
   }
   .exp-details-row{
     display: flex;
     flex-direction: column;
     width: 90%;
+    margin: 5px;
   }
   .input{
     height: 25px;
   }
   .label{
     color: gray;
+  }
+  .date-details{
+    display: flex;
+    width:90%;
+  }
+  .date-details-row{
+    display: flex;
+    width:100%;
+  }
+  .date-details-row>*{
+    width:50%;
+  }
+  .modal-btns{
+    margin-top:20px;
+  }
+  .modal-submit-btn{
+    background: #006097;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: white;
+    cursor: pointer;
   }
