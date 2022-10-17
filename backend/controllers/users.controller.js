@@ -54,8 +54,10 @@ const updateEducation = async (req, res) => {
             school: data.school,
             degree: data.degree,
             field: data.field,
-            start_date: data.start_edu_date,
-            end_date: data.end_edu_date,
+            start_month: data.start_month,
+            start_year: data.start_year,
+            end_month: data.end_month,
+            end_year: data.end_year,
             grade: data.grade,}
         } 
     }, { new: true })
