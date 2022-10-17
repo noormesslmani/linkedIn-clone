@@ -50,8 +50,13 @@ function apply(id){
             console.log(error);
         });
 }
+function addExperience(title, type,company,startMonth,startYear,endMonth,endYear,location,industry){
+    
+}
+
 export{
     userLogIn,
     registerUser,
-    apply
+    apply,
+    addExperience
 }

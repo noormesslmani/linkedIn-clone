@@ -14,7 +14,7 @@ const updateUser = async (req, res) => {
         profile_picture: data.profile_picture,
         cover_photo: data.cover_photo,
         password: await bcrypt.hash(data.password, 10),   
-    })
+    }, { new: true })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
@@ -32,13 +32,15 @@ const updateExperience = async (req, res) => {
             employment_type: data.employment_type,
             company_name: data.company_name,
             location: data.location,
-            start_date: data.start_date,
-            end_date: data.end_date,
+            start_month: data.start_month,
+            start_year: data.start_year,
+            end_month: data.end_month,
+            end_year: data.end_year,
             industry: data.industry,
             description: data.description,
             }
         },
-    })
+    },  { new: true })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
@@ -56,7 +58,7 @@ const updateEducation = async (req, res) => {
             end_date: data.end_edu_date,
             grade: data.grade,}
         } 
-    })
+    }, { new: true })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
@@ -65,7 +67,7 @@ const updateSkills = async (req, res) => {
     const data = req.body
     User.findOneAndUpdate({ email: req.user.email },{
         $push:{"skills":data.skill} 
-    })
+    }, { new: true })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }

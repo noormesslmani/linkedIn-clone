@@ -58,12 +58,20 @@ const userSchema = new mongoose.Schema({
             type: String,
             default: null
         },
-        start_date: {
-            type: Date,
+        start_month: {
+            type: String,
             default: null
         },
-        end_date: {
-            type: Date,
+        start_year: {
+            type: Number,
+            default: null
+        },
+        end_month: {
+            type: String,
+            default: null
+        },
+        end_year: {
+            type: Number,
             default: null
         },
         industry: {

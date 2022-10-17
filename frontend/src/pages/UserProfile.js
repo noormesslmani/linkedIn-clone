@@ -15,7 +15,7 @@ function UserProfile(){
     const experience= info.experience
     const education = info.education
     const skills= info.skills
-
+ 
     const handleEdu=()=>{
 
     }
