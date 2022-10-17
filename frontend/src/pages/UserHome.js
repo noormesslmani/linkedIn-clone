@@ -13,8 +13,8 @@ function UserHome(){
         };
         axios.get(`${baseURL}/jobs`, config)
         .then(function (response) {
+            console.log(response.data)
             setJobs(response.data)
-            console.log(typeof(jobs))
             return (response.data)
         })
         .catch(function (error) {

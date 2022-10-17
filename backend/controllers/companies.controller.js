@@ -13,8 +13,9 @@ const createJob = async (req, res) => {
         job.company_id = req.company._id;
         job.employment_type = employment_type;
         job.experience= experience,
-        job.details= details
+        job.details= details,
         await job.save();
+        await Job.findByIdAndUpdate(job._id,{$push:{company:req.company._id}} )
         await Company.findOneAndUpdate({ email: req.company.email },{$push:{jobs:job._id} });
         res.json(job);
     }catch(err){
