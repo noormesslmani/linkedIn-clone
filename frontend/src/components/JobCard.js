@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import '../styles/UserHome.css';
+import { useNavigate } from "react-router-dom";
 import image from '../assets/original.png';
 export default function JobCard({job}){
+    const navigate= useNavigate()
     console.log(job)
+    const handleClick=()=>{
+        navigate("/job-details",{state:{job}});
+    }
     return( 
-        <div className='job-card'>
+        <div className='job-card' onClick={handleClick}>
             <div className='description'>
                 <img src={image} className='job-img' ></img>
                 <div className='company-info'>

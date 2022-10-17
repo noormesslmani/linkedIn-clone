@@ -79,3 +79,30 @@ hr{
    width: 400px;
    align-self: center;
 }
+.job-description{
+    background-color: white;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.suitCase{
+    margin-right: 10px;
+    align-self: center;
+}
+.employment-type{
+    display: flex;
+}
+.easy-apply-btn{
+    background-color:  #006097;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width:150px;
+    height: 40px;
+    margin:20px 0px;
+}

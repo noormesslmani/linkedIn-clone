@@ -1,6 +1,5 @@
 import '../styles/UserHome.css'
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 import NavUser from '../components/NavUser';
 import JobCard from '../components/JobCard';
 import axios from 'axios';
