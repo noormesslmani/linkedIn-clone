@@ -27,7 +27,7 @@ function UserProfile(){
         <>
             <NavUser/>
             <section className='jobs'>
-             <div className='profile-info'>
+            
                 <div className='header'>
                     <img className='cover-photo' src={cover}/>
                     <img className='profile-photo'src={profile} />
@@ -82,7 +82,7 @@ function UserProfile(){
                         </div>
                     )}
                 </div>
-             </div>
+            
             </section>
             {showExpModal?<AddExp setShowExpModal={setShowExpModal}/>:<></>}
             

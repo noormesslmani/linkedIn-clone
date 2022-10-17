@@ -110,17 +110,15 @@ hr{
     scale: 0.9;
 }
 /*profile*/
-.profile-info{
-    width:750px;
+.header{
+    position: relative;
     background-color: white;
+    width:750px;
     display: flex;
     flex-direction: column; 
     border: none;
     border-radius: 20px; 
-}
-.header{
-    position: relative;
-    width: 100%;
+    margin: 5px;
 }
 .cover-photo{
     height: 300px;
@@ -145,6 +143,12 @@ hr{
     padding: 30px;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    width:750px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 20px; 
+    margin: 5px;
 }
 .experience-row{
     display: flex;
