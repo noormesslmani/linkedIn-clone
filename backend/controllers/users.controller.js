@@ -1,5 +1,6 @@
 const User = require('../models/users.model');
 const Job = require('../models/jobs.model');
+const Company = require('../models/companies.model');
 const bcrypt = require('bcrypt');
 
 const updateUser = async (req, res) => {
@@ -95,7 +96,11 @@ const getUsers = async (req, res) => {
     .then((user)=>res.status(200).json(user))
     .catch((err)=>res.status(400).json(err))
 }
-
+const getCompanies=async (req, res) => {
+    Company.find()
+    .then((company)=>res.status(200).json(company))
+    .catch((err)=>res.status(400).json(err))
+}
 const getUser= async (req, res) => {
     const {id} = req.query;
     try{
@@ -147,6 +152,7 @@ const getFollowingJobs = async (req, res) => {
     }
 };
 
+
 module.exports = {
     updateUser,
     getUsers,
@@ -159,7 +165,8 @@ module.exports = {
     getApplications,
     followCompany,
     getFollowingJobs,
-    me
+    me,
+    getCompanies
 }
 
 
