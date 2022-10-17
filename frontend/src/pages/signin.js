@@ -17,10 +17,10 @@ function UserSignin(){
         setEnterPassword(false)
         if(document.getElementById('email').value){
             if(document.getElementById('pass').value){
-                userLogIn(document.getElementById('email').value,document.getElementById('pass').value,setInvalidAccount)
-                if(invalidAccount==false){
-                    navigate('/user-home')
-                }
+                userLogIn(document.getElementById('email').value,document.getElementById('pass').value,setInvalidAccount, navigate)
+                // if(invalidAccount==false){
+                //     navigate('/user-home')
+                // }
             }
             else{
                 setEnterPassword(true)

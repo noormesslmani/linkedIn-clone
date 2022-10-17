@@ -23,7 +23,7 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
         });
 }
 
-function userLogIn(email, password,setInvalidAccount){
+function userLogIn(email, password,setInvalidAccount, navigate){
     axios.post(`${baseURL}/auth/user-login`, {
         email: email,
         password: password,
@@ -32,7 +32,7 @@ function userLogIn(email, password,setInvalidAccount){
             localStorage.setItem('token',response.data.token)
             localStorage.setItem('me',JSON.stringify(response.data.user))
             console.log(response.data)
-           
+            navigate('/user-home')
             return (response.data)
         })
         .catch(function (error) {

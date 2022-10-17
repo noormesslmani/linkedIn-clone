@@ -1,12 +1,12 @@
 import '../styles/UserHome.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import NavUser from '../components/NavUser';
 import JobCard from '../components/JobCard';
 import axios from 'axios';
 const baseURL='http://localhost:3000'
 function UserHome(){
-    console.log(localStorage.getItem("token").split(" "))
     const [jobs,setJobs]=useState([]);
+    console.log(localStorage)
     useEffect(() => {
         let config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`},
@@ -20,6 +20,7 @@ function UserHome(){
             console.log(error);
         });
     }, []);
+    console.log(1234)
     return (
         <>
         <NavUser/>

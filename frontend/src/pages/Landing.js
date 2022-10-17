@@ -20,7 +20,7 @@ function Landing() {
   const [passwordLength,setPasswordLength]=useState(false);
   const [enterFirstName,setEnterFirstName]=useState(false);
   const [enterLastName,setEnterLastName]=useState(false);
-  
+ 
 
   if(page==2){
     setPlaceholders(['First Name','Last Name'])
@@ -61,7 +61,7 @@ function Landing() {
       }
     }
   }
-
+  
   return (
     <div className='landing-page'>
         <nav className='landing-nav' >
