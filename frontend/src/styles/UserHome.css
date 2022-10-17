@@ -17,6 +17,11 @@
     width:20px;
     height: 20px;
     margin: 0px 20px;
+    color:  #666;
+    cursor: pointer;
+}
+.icon:hover{
+    color: black;
 }
 .search-input{
     width:300px;
@@ -25,6 +30,7 @@
     background-color:#eef3f8;
     border-radius: 5px;
     border: none;
+    height: 40px;
 }
 
 .me-img{
@@ -36,8 +42,9 @@
 .job-card{
     display: flex;
     flex-direction: column;
-    width:60%;
+    width:100%;
     margin:10px;
+    cursor: pointer;
 }
 .jobs{
     display: flex;
@@ -55,7 +62,8 @@
 .job-list{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 600px;
+    padding: 10px;
     background-color: white;
     border: 1px solid gainsboro;
     border-radius: 20px;
@@ -76,8 +84,9 @@
     display: flex;
 }
 hr{
-   width: 400px;
+   width: 95%;
    align-self: center;
+   margin-top: 20px;
 }
 .job-description{
     background-color: white;

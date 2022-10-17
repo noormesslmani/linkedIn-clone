@@ -10,14 +10,16 @@ import cover from '../assets/bg.webp'
 import profile from '../assets/blank-profile.webp'
 import image from '../assets/original.png';
 import AddExp from '../components/ExpModal';
+import AddEdu from '../components/EduModal';
 function UserProfile(){
     const info = JSON.parse(localStorage.me)
     const experience= info.experience
     const education = info.education
     const skills= info.skills
     const [showExpModal, setShowExpModal]=useState(false)
+    const [showEduModal, setShowEduModal]=useState(false)
     const handleEdu=()=>{
-
+        setShowEduModal(true)
     }
     const handleExp=()=>{
         setShowExpModal(true)
@@ -85,7 +87,7 @@ function UserProfile(){
             
             </section>
             {showExpModal?<AddExp setShowExpModal={setShowExpModal}/>:<></>}
-            
+            {showEduModal?<AddEdu setShowEduModal={setShowEduModal}/>:<></>}
         </>
         
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/UserHome.css'
-
-export default function AddEdu() {
+import {addEducation} from '../api';
+export default function AddEdu({setShowEduModal}) {
     const [school, setSchool]=useState('')
     const [degree, setDegree]=useState('')
     const [field, setField]=useState('')
@@ -37,13 +37,13 @@ export default function AddEdu() {
     
     const handleSubmit=(e)=>{
         e.preventDefault()
-        // if(title!=''){
-        //     addExperience(title, type,company,startMonth,startYear,endMonth,endYear,location,industry);
-        // }
+        if(school!=''){
+            addEducation(school, degree, field,startMonth,startYear,endMonth,endYear, grade);
+        }
     }
     const handleCancel=(e)=>{
         e.preventDefault()
-        // setShowExpModal(false)
+        setShowEduModal(false)
     }
     return(
         <div className='add-modal'>

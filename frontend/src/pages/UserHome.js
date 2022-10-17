@@ -25,6 +25,7 @@ function UserHome(){
         <NavUser/>
         <section className='jobs'>
             <div className='job-list'>
+                <h2>Recommended for you</h2>
                 {jobs.map((job)=><JobCard job={job} />)} 
             </div>  
         </section>

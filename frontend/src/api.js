@@ -62,10 +62,22 @@ function addExperience(title, type,company,startMonth,startYear,endMonth,endYear
         console.log(error);
     });
 }
-
+function addEducation(school, degree,field,startMonth,startYear,endMonth,endYear,grade){
+    axios.put(`${baseURL}/users/education`, {school: school, degree: degree, field: field,start_month: startMonth,start_year: startYear,end_month: endMonth,end_year: endYear,grade: grade}
+    , config)
+    .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data))
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
 export{
     userLogIn,
     registerUser,
     apply,
-    addExperience
+    addExperience,
+    addEducation
 }
