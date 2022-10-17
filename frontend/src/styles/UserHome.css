@@ -158,3 +158,15 @@ hr{
     align-self: center;
     cursor: pointer;
 }
+.exp-details{
+    display: flex;
+    margin: 10px 0px;
+}
+.written-details{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+}
+.detail{
+    line-height: 1px;
+}
