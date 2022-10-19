@@ -19,7 +19,7 @@ export default function NavUser(){
                 <input placeholder='Search' className='search-input'></input>
             </div>
             <div className='left-side'>
-                <FontAwesomeIcon icon={faUserGroup} className='icon' />
+                <Link to='/user-companies'><FontAwesomeIcon icon={faUserGroup} className='icon' /></Link>
                 <Link to='/user-home'><FontAwesomeIcon icon={faSuitcase} className='icon' /></Link>
                 <FontAwesomeIcon icon={faBell} className='icon' />
                 <Link to='/user-profile'><img src={me} className='me-img'></img></Link>
