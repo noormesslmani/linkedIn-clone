@@ -74,10 +74,21 @@ function addEducation(school, degree,field,startMonth,startYear,endMonth,endYear
         console.log(error);
     });
 }
+function displayCompanies(setCompanies){
+    axios.get(`${baseURL}/users/comapnies`, config)
+    .then(function (response) {
+        console.log(response.data)
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
 export{
     userLogIn,
     registerUser,
     apply,
     addExperience,
-    addEducation
+    addEducation,
+    displayCompanies
 }

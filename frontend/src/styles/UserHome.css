@@ -247,3 +247,15 @@ hr{
     color: white;
     cursor: pointer;
   }
+  .comapnies{
+    color:#f3f2ef;
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .comapnies{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+  }
