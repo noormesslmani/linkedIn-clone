@@ -260,9 +260,14 @@ hr{
     flex-wrap: wrap;
     align-items: center;
   }
+  .company-img{
+    width: 100px;
+    height: 100px;
+    
+  }
   .company-card{
     width:150px;
-    height: 180px;
+    height: fit-content;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
@@ -273,7 +278,25 @@ hr{
     flex-direction: column;
     align-items: center;
   }
-  .company-info{
+  .company-details{
     display: flex;
     flex-direction: column;
+    align-items: center;
+   
+  }
+  .company-info{
+    display: block;
+    line-height: 0.5;
+  }
+  .company-info>*{
+    align-items: center;
+  }
+  .follow-company{
+    background: #006097;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: white;
+    cursor: pointer;
   }

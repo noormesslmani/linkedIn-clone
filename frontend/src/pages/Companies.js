@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import NavUser from '../components/NavUser';
 import { displayCompanies } from '../api';
 import CompanyCard from '../components/CompanyCard';
+import { json } from 'react-router-dom';
 function Companies(){
     const [companies,setCompanies]=useState([]);
     useEffect(() => {
@@ -13,6 +14,7 @@ function Companies(){
         <>
             <NavUser/>
             <section className='companies'>
+                <h2>Suggested Companies</h2>
                 <div className='companies-container'>
                     {companies.map((company)=><CompanyCard company={company} />)} 
                 </div>

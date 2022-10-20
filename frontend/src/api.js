@@ -77,13 +77,38 @@ function addEducation(school, degree,field,startMonth,startYear,endMonth,endYear
 function displayCompanies(setCompanies){
     axios.get(`${baseURL}/users/companies`, config)
     .then(function (response) {
-        console.log(response.data)
         setCompanies(response.data)
+      
         return (response.data)
     })
     .catch(function (error) {
         console.log(error);
     });
+}
+function followCompany(id){
+    axios.put(`${baseURL}/users/follow-company`, {company_id: id}
+    , config)
+    .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data))
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+function unfollowCompany(id){
+    axios.put(`${baseURL}/users/unfollow-company`, {company_id: id}
+    , config)
+    .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data))
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
 }
 export{
     userLogIn,
@@ -91,5 +116,7 @@ export{
     apply,
     addExperience,
     addEducation,
-    displayCompanies
+    displayCompanies,
+    followCompany,
+    unfollowCompany
 }
