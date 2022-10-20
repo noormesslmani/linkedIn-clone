@@ -7,12 +7,14 @@ import UserHome from './pages/user/UserHome';
 import JobDetails from './pages/user/JobDetails';
 import UserProfile from './pages/user/UserProfile';
 import Companies from './pages/user/Companies';
+import Landing1 from './pages/Landing1';
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/' exact element={<Landing/>} />
+          <Route path='/' exact element={<Landing1/>} />
+          <Route path='/register' exact element={<Landing/>} />
           <Route path='/user-signin' exact element={<UserSignin/>} />
           <Route path='/user-home' exact element={<UserHome/>} />
           <Route path='/job-details' exact element={<JobDetails/>} />

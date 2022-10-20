@@ -1,12 +1,13 @@
 import '../styles/landing.css'
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import InputSignup from '../components/InputSignup';
 import ButtonSignup from '../components/ButtonSignup';
 import {registerUser} from '../api';
 import image from '../assets/landing-img.svg'
 import logo from '../assets/Linkedin-Logo.png'
 function Landing() {
+  const { state } = useLocation();
   const [page,setPage]=useState('one');
   const [buttonLabel,setButtonLabel]=useState('Agree & Join');
   const [placeholders,setPlaceholders]=useState(['Email','Password(8+ characters)']);
@@ -79,6 +80,12 @@ function Landing() {
                   {passwordLength?<p className='error-msg'>Password must be 8 characters or more</p>:<></>}
                     <InputSignup placeholders={placeholders} page={page} setEmail={setEmail} setPassword={setPassword} setFirstname={setFirstname} setLastname={setLastname}/>
                     <ButtonSignup handleClick={handleClick} buttonLabel={buttonLabel} />
+                    
+                    <div className='register-as'>
+                      <div>Register as:</div>
+                      <div className='user-type'>Person</div>
+                      <div className='user-type'>Company</div>
+                    </div>
                     <div className='switch-to-signin'>Already on LinkedIn? <Link className='signin-link' to={'/user-signin'}>Sign in</Link></div>
                 </form>
             </div>
