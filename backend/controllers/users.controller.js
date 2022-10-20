@@ -87,7 +87,15 @@ const followCompany= async(req,res)=>{
     const data = req.body 
     User.findOneAndUpdate({ email: req.user.email },{
         $push:{ companies_follow: data.company_id} 
-    })
+    }, { new: true })
+    .then((user)=>res.json(user))
+    .catch((err)=>res.status(400).json(err))
+}
+const unfollowCompany= async(req,res)=>{
+    const data = req.body 
+    User.findOneAndUpdate({ email: req.user.email },{
+        $pull:{ companies_follow: data.company_id} 
+    }, { new: true })
     .then((user)=>res.json(user))
     .catch((err)=>res.status(400).json(err))
 }
@@ -152,7 +160,10 @@ const getFollowingJobs = async (req, res) => {
     }
 };
 
-
+// const company= async(req,res)=>{
+//     const user =User.find({ "companies_follow.id": { "$in": ["634a691afbd0d5957d2a22dd"] } })
+//     res.json(user);
+// }
 module.exports = {
     updateUser,
     getUsers,
@@ -166,7 +177,8 @@ module.exports = {
     followCompany,
     getFollowingJobs,
     me,
-    getCompanies
+    getCompanies,
+    unfollowCompany
 }
 
 
