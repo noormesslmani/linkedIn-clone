@@ -34,9 +34,9 @@ const loginCompany = async (req, res)=>{
     if(!isMatch) return res.status(404).json({message: "Invalid Credentials"});
 
     const token = jwt.sign({email: company.email, name: company.name}, process.env.JWT_SECRET_KEY, {
-        expiresIn: '1h'
+        expiresIn: '2h'
     });
-    res.status(200).json(token)
+    res.status(200).json({token: token, company:company})
 }
 
 module.exports = {

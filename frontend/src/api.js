@@ -58,6 +58,22 @@ function userLogIn(email, password,setInvalidAccount, navigate){
             console.log(error);
         });
 }
+function companyLogIn(email, password,setInvalidAccount, navigate){
+    axios.post(`${baseURL}/auth/company-login`, {
+        email: email,
+        password: password,
+    })
+        .then(function (response) {
+            localStorage.setItem('token',response.data.token)
+            localStorage.setItem('me',JSON.stringify(response.data.company))
+            console.log(response.data)
+            return (response.data)
+        })
+        .catch(function (error) {
+            setInvalidAccount(true)
+            console.log(error);
+        });
+}
 function apply(id){
     axios.put(`${baseURL}/users/apply`, {job_id:id}, config)
         .then(function (response) {
@@ -139,5 +155,6 @@ export{
     displayCompanies,
     followCompany,
     unfollowCompany,
-    registerCompany
+    registerCompany,
+    companyLogIn
 }

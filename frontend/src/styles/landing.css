@@ -90,3 +90,8 @@ form{
    line-height: 1;
    margin: 10px;
 }
+.signin-usertype{
+    margin: 5px;
+    display: flex;
+    align-self: center;
+}
