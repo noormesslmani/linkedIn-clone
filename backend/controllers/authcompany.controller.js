@@ -11,7 +11,6 @@ const signupCompany = async (req, res)=>{
         company.country = country;
         company.email = email;
         company.password = await bcrypt.hash(password, 10);
-
         await company.save();
         res.json(company)
     }catch(err){
