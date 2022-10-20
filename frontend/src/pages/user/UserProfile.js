@@ -1,16 +1,16 @@
-import '../styles/UserHome.css'
+import '../../styles/UserHome.css'
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import NavUser from '../components/NavUser';
+import NavUser from '../../components/NavUser';
 import axios from 'axios';
 import { useLocation} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
-import cover from '../assets/bg.webp'
-import profile from '../assets/blank-profile.webp'
-import image from '../assets/original.png';
-import AddExp from '../components/ExpModal';
-import AddEdu from '../components/EduModal';
+import cover from '../../assets/bg.webp'
+import profile from '../../assets/blank-profile.webp'
+import image from '../../assets/original.png';
+import AddExp from '../../components/user/ExpModal';
+import AddEdu from '../../components/user/EduModal';
 function UserProfile(){
     const info = JSON.parse(localStorage.me)
     const experience= info.experience

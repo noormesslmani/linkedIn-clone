@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import '../styles/UserHome.css'
-import {addExperience} from '../api';
-export default function AddExp({setShowExpModal}) {
-    const [title, setTitle]=useState('')
-    const [type, setType]=useState('')
-    const [company, setCompany]=useState('')
+import '../../styles/UserHome.css'
+import {addEducation} from '../../api';
+export default function AddEdu({setShowEduModal}) {
+    const [school, setSchool]=useState('')
+    const [degree, setDegree]=useState('')
+    const [field, setField]=useState('')
     const [startMonth, setStartMonth]=useState('')
     const [startYear, setStartYear]=useState('')
     const [endMonth, setEndMonth]=useState('')
     const [endYear, setEndYear]=useState('')
-    const [industry, setIndustry]=useState('')
-    const [location, setLocation]=useState('')
-    const handleCompany=(e)=>{
-        setCompany(e.target.value)
+    const [grade, setGrade]=useState('')
+    const handleSchool=(e)=>{
+        setSchool(e.target.value)
     }
-    const handleType=(e)=>{
-        setType(e.target.value)
+    const handleDegree=(e)=>{
+        setDegree(e.target.value)
     }
-    const handleTitle=(e)=>{
-        setTitle(e.target.value)
+    const handleField=(e)=>{
+        setField(e.target.value)
     }
     const handleStartMonth=(e)=>{
         setStartMonth(e.target.value)
@@ -32,41 +31,35 @@ export default function AddExp({setShowExpModal}) {
     const handleEndYear=(e)=>{
         setEndYear(e.target.value)
     }
-    const handleIndustry=(e)=>{
-        setIndustry(e.target.value)
+    const handleGrade=(e)=>{
+        setGrade(e.target.value)
     }
-    const handleLocation=(e)=>{
-        setLocation(e.target.value)
-    }
+    
     const handleSubmit=(e)=>{
         e.preventDefault()
-        if(title!=''){
-            addExperience(title, type,company,startMonth,startYear,endMonth,endYear,location,industry);
+        if(school!=''){
+            addEducation(school, degree, field,startMonth,startYear,endMonth,endYear, grade);
         }
     }
     const handleCancel=(e)=>{
         e.preventDefault()
-        setShowExpModal(false)
+        setShowEduModal(false)
     }
     return(
         <div className='add-modal'>
             <form className='content'>
-                <h2 className='submit-text'>Add experience</h2>
+                <h2 className='submit-text'>Add Education</h2>
                 <div className='exp-details-row'>
-                    <label className="label">Title</label>
-                    <input className="input" type="text" placeholder='Title' id='title' onChange={handleTitle} />
+                    <label className="label">School*</label>
+                    <input className="input" type="text" placeholder='School'  onChange={handleSchool} />
                 </div>
                 <div className='exp-details-row'>
-                    <label className="label">Employment type</label>
-                    <input className="input" type="text" placeholder='Employment type' id='type' onChange={handleType}  />
+                    <label className="label">Degree</label>
+                    <input className="input" type="text" placeholder='Degree' onChange={handleDegree}  />
                 </div>
                 <div className='exp-details-row'>
-                    <label className="label">Company Name</label>
-                    <input className="input" type="text" placeholder='Company Name' id='company' onChange={handleCompany}  />
-                </div>
-                <div className='exp-details-row'>
-                    <label className="label">Location</label>
-                    <input className="input" type="text" placeholder='Location' id='location' onChange={handleLocation}  />
+                    <label className="label">Field of Study</label>
+                    <input className="input" type="text" placeholder='Field of Study' onChange={handleField}  />
                 </div>
                 <div className='exp-details-row'>
                     <label className="label">Start date</label>    
@@ -83,8 +76,8 @@ export default function AddExp({setShowExpModal}) {
                     </div>   
                 </div>
                 <div className='exp-details-row'>
-                    <label className="label">Industry</label>
-                    <input className="input" type="text" placeholder='Industry' id='industry' onChange={handleIndustry}  />
+                    <label className="label">Grade</label>
+                    <input className="input" type="text" placeholder='Grade'  onChange={handleGrade}  />
                 </div>
                 <div className="modal-btns">
                     <button className='modal-submit-btn' onClick={handleSubmit}>Submit</button>

@@ -1,9 +1,9 @@
-import '../styles/landing.css'
+import '../../styles/landing.css'
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import ButtonSignup from '../components/ButtonSignup';
-import logo from '../assets/Linkedin-Logo.png'
-import {userLogIn} from '../api';
+import ButtonSignup from '../../components/ButtonSignup';
+import logo from '../../assets/Linkedin-Logo.png'
+import {userLogIn} from '../../api';
 function UserSignin(){
     const navigate = useNavigate();
     const [buttonLabel,setButtonLabel]=useState('Sign in');

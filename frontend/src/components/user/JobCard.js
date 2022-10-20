@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import '../styles/UserHome.css';
+import '../../styles/UserHome.css';
 import { useNavigate } from "react-router-dom";
-import image from '../assets/original.png';
+import image from '../../assets/original.png';
 export default function JobCard({job}){
     const navigate= useNavigate()
     console.log(job)

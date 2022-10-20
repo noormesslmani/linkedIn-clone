@@ -1,7 +1,7 @@
-import '../styles/UserHome.css'
+import '../../styles/UserHome.css'
 import React, { useState, useEffect, useCallback } from 'react';
-import NavUser from '../components/NavUser';
-import JobCard from '../components/JobCard';
+import NavUser from '../../components/NavUser';
+import JobCard from '../../components/user/JobCard';
 import axios from 'axios';
 const baseURL='http://localhost:3000'
 function UserHome(){

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import '../styles/UserHome.css';
+import '../../styles/UserHome.css';
 import { useNavigate } from "react-router-dom";
-import image from '../assets/original.png';
-import {followCompany, unfollowCompany} from '../api';
+import image from '../../assets/original.png';
+import {followCompany, unfollowCompany} from '../../api';
 export default function CompanyCard({company}){
    
     const me= JSON.parse(localStorage.me) 

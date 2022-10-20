@@ -1,9 +1,9 @@
-import '../styles/UserHome.css'
+import '../../styles/UserHome.css'
 import React, { useState, useEffect} from 'react';
-import NavUser from '../components/NavUser';
-import { displayCompanies } from '../api';
-import CompanyCard from '../components/CompanyCard';
-import { json } from 'react-router-dom';
+import NavUser from '../../components/NavUser';
+import { displayCompanies } from '../../api';
+import CompanyCard from '../../components/user/CompanyCard';
+
 function Companies(){
     const [companies,setCompanies]=useState([]);
     useEffect(() => {
