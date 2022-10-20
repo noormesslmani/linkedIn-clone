@@ -85,24 +85,26 @@ function displayCompanies(setCompanies){
         console.log(error);
     });
 }
-function followCompany(id){
+function followCompany(id, setFollow){
     axios.put(`${baseURL}/users/follow-company`, {company_id: id}
     , config)
     .then(function (response) {
         console.log(response.data)
         localStorage.setItem('me',JSON.stringify(response.data))
+        setFollow(true)
         return (response.data)
     })
     .catch(function (error) {
         console.log(error);
     });
 }
-function unfollowCompany(id){
+function unfollowCompany(id, setFollow){
     axios.put(`${baseURL}/users/unfollow-company`, {company_id: id}
     , config)
     .then(function (response) {
         console.log(response.data)
         localStorage.setItem('me',JSON.stringify(response.data))
+        setFollow(false)
         return (response.data)
     })
     .catch(function (error) {

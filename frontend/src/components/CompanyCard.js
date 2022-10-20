@@ -4,20 +4,20 @@ import { useNavigate } from "react-router-dom";
 import image from '../assets/original.png';
 import {followCompany, unfollowCompany} from '../api';
 export default function CompanyCard({company}){
- 
-    const handleClick=(e)=>{
-        e.preventDefault()
-        if(companiesFollow.includes(company._id)){
-            unfollowCompany(company._id)
-        }
-        else{
-            followCompany(company._id)
-        }
-    }
-    
+   
     const me= JSON.parse(localStorage.me) 
     const companiesFollow =me.companies_follow
-    console.log(companiesFollow)
+    const [follow, setFollow]=useState(false)
+    const handleClick=(e)=>{
+        e.preventDefault()
+        
+        if(companiesFollow.includes(company._id)){
+            unfollowCompany(company._id, setFollow)
+        }
+        else{
+            followCompany(company._id, setFollow)
+        }
+    }
     return( 
         <div className='company-card'>
             <div className='company-details'>
@@ -26,7 +26,7 @@ export default function CompanyCard({company}){
                     <h5 className='info title'>{company.name}</h5>
                     <p className='info'>{company.city}, {company.country}</p>
                 </div>
-                <button className='follow-company' onClick={handleClick}>{companiesFollow.includes(company._id)?'Following':'Follow'}</button>
+                <button className='follow-company' onClick={handleClick}>{follow?'Following':'Follow'}</button>
             </div>
         </div> 
     )
