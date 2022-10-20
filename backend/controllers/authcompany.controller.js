@@ -12,7 +12,10 @@ const signupCompany = async (req, res)=>{
         company.email = email;
         company.password = await bcrypt.hash(password, 10);
         await company.save();
-        res.json(company)
+        const token = jwt.sign({email: company.email, id: company.id}, process.env.JWT_SECRET_KEY, {
+            expiresIn: '2h'
+        });
+        res.json({company:company, token:token})
     }catch(err){
         res.status(400).json({
             message: err.message
