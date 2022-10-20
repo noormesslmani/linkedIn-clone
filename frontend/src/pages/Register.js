@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import InputSignup from '../components/InputSignup';
 import ButtonSignup from '../components/ButtonSignup';
-import {registerUser} from '../api';
+import {registerUser, registerCompany} from '../api';
 import image from '../assets/landing-img.svg'
 import logo from '../assets/Linkedin-Logo.png'
 import { type } from '@testing-library/user-event/dist/type';
@@ -57,58 +57,13 @@ function Register() {
         setEnterLastName(true)
       }
       else{
-        console.log(email)
-        console.log(password)
-        console.log(firstname)
-        console.log(lastname)
         registerUser(email, password, firstname, lastname, setTakenEmail)
       }
     }
     else if(state.type=='company' && page=='two'){
-      console.log(name)
-      console.log(city)
-      console.log(country)
+      registerCompany(email, password, name, city,country, setTakenEmail)
     }
-    // setEnterPassword(false)
-    // setEnteremail(false)
-    // setPasswordLength(false)
-    // setEnterFirstName(false)
-    // setEnterLastName(false)
-    // setTakenEmail(false)
-    // if (page=='one')
-    // { 
-    //   if(email==''){
-    //     setEnteremail(true)}
-    //   else if(password==''){
-    //     setEnterPassword(true)
-    //   }
-    //   else if(password.length<8){
-    //     setPasswordLength(true)
-    //   }
-    //   else{
-    //     setPage('two')
-    //     if(state.type=='person'){
-    //       setPlaceholders(['First Name','Last Name'])
-    //     }
-    //     else{
-    //       setPlaceholders(['Name','City', 'Country'])
-    //     }
-    //     setButtonLabel('Continue')
-    //   }
-    // }
-    // else{
-    //   if(state.type=='person'){
-    //     if(firstname==''){
-    //       setEnterFirstName(true)
-    //     }
-    //     else if(lastname==''){
-    //       setEnterLastName(true)
-    //     }
-    //     else{
-    //       registerUser(email, password, firstname, lastname, setTakenEmail)
-    //     }
-    //   }
-    // }
+    
   }
   
   return (

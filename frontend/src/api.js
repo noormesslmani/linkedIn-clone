@@ -22,7 +22,25 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
             console.log(error);
         });
 }
-
+function registerCompany(email, password, name, city,country, setTakenEmail){
+    axios.post(`${baseURL}/auth/company-signup`, {
+        email: email,
+        password: password,
+        name: name,
+        city: city,
+        country: country
+    })
+        .then(function (response) {
+        
+            localStorage.setItem('token',response.data.token)
+            localStorage.setItem('me',JSON.stringify(response.data.company))
+            console.log(localStorage)
+            return (response.data)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 function userLogIn(email, password,setInvalidAccount, navigate){
     axios.post(`${baseURL}/auth/user-login`, {
         email: email,
@@ -120,5 +138,6 @@ export{
     addEducation,
     displayCompanies,
     followCompany,
-    unfollowCompany
+    unfollowCompany,
+    registerCompany
 }
