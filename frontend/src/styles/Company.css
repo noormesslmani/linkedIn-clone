@@ -74,3 +74,43 @@
     min-height: 100px;
     resize: vertical;
  }
+ .title{
+  font-size: 30px;
+ }
+ .job{
+  display: flex;
+  flex-direction: column;
+ }
+ .description{
+  display: flex;
+  align-items: flex-start;
+ }
+.info{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+ hr{
+  width:100%;
+  color: gray;
+ }
+ .icon{
+  width: 15px;
+  height: 15px;
+ }
+ .job-details{
+  font-size: 16px;
+ }
+ .applicants-btn{
+  background: #006097;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  color: white;
+  cursor: pointer;
+ }
+ .applicants-row{
+  display: flex;
+  justify-content: space-between;
+ }

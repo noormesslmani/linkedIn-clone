@@ -6,7 +6,7 @@ import axios from 'axios';
 const baseURL='http://localhost:3000'
 function UserHome(){
     const [jobs,setJobs]=useState([]);
-    console.log(localStorage)
+    console.log(localStorage) 
     useEffect(() => {
         let config = {
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}`},

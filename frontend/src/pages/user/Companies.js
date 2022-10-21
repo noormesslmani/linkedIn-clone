@@ -9,7 +9,7 @@ function Companies(){
     useEffect(() => {
         displayCompanies(setCompanies);
     }, []);
-    
+    console.log(companies)
     return (
         <>
             <NavUser/>

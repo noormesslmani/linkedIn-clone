@@ -3,11 +3,19 @@ import React, { useState, useEffect } from 'react';
 import NavCompany from '../../components/company/NavCompany';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { displayJobs } from '../../api';
 import AddJob from '../../components/company/JobModal';
+import JobCard from '../../components/company/JobCard';
 function CompanyHome(){
     const me= JSON.parse(localStorage.me) 
-    console.log(me.jobs)
     const [jobModal, setJobModal]= useState(false)
+    // const [jobs, setJobs]= useState([])
+    useEffect(() => {
+        displayJobs();
+    }, []);
+    console.log(localStorage)
+    const jobs=JSON.parse(localStorage.jobs)
+    console.log(jobs)
     const addJob=()=>{
         setJobModal(true)
     }
@@ -26,7 +34,8 @@ function CompanyHome(){
                 
                 <div className='jobs-container'>
                     <FontAwesomeIcon icon={faCirclePlus} className='add-job' onClick={addJob} />
-                    {me.jobs.length==0?<h3>No jobs availbale currently</h3>:<></>}
+                    {jobs==[]?<h3>No jobs availbale currently</h3>:<></>}
+                    {jobs.map((job)=><JobCard job={job}/>)}
                 </div>
                 {jobModal? <AddJob handleClick={handleClick} handleSubmit={handleSubmit} />:<></> }
             </section>

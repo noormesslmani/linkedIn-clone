@@ -12,7 +12,7 @@ function JobDetails(){
     const applications =me.applications
     const [applied, setapplied]=useState(false)
     const { state } = useLocation();
-    console.log(state.job)
+    
     useEffect(() => {
         if(applications.includes(state.job._id)){
             setapplied(true)

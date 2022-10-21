@@ -119,6 +119,20 @@ function displayCompanies(setCompanies){
         console.log(error);
     });
 }
+
+function displayJobs(){
+    axios.get(`${baseURL}/companies/jobs`, config)
+    .then(function (response) {
+    
+        localStorage.setItem('jobs',JSON.stringify(response.data))
+        // setJobs(response.data)
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
 function followCompany(id, setFollow){
     axios.put(`${baseURL}/users/follow-company`, {company_id: id}
     , config)
@@ -146,6 +160,20 @@ function unfollowCompany(id, setFollow){
     });
 
 }
+
+function createJob(){
+    axios.post(`${baseURL}/companies/`, {}, config)
+    .then(function (response) {
+        console.log(response.data)
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+
+}
+
+
 export{
     userLogIn,
     registerUser,
@@ -156,5 +184,6 @@ export{
     followCompany,
     unfollowCompany,
     registerCompany,
-    companyLogIn
+    companyLogIn,
+    displayJobs
 }
