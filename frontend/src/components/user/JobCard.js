@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import image from '../../assets/original.png';
 export default function JobCard({job}){
     const navigate= useNavigate()
-    console.log(job)
+   
     const handleClick=()=>{
         navigate("/job-details",{state:{job}});
     }

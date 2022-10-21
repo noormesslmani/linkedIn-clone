@@ -20,7 +20,7 @@ function UserHome(){
             console.log(error);
         });
     }, []);
-    console.log(1234)
+  
     return (
         <>
         <NavUser/>

@@ -8,6 +8,11 @@ export default function CompanyCard({company}){
     const me= JSON.parse(localStorage.me) 
     const companiesFollow =me.companies_follow
     const [follow, setFollow]=useState(false)
+    useEffect(() => {
+        if(companiesFollow.includes(company._id)){
+            setFollow(true)
+        }
+    }, []);
     const handleClick=(e)=>{
         e.preventDefault()
         

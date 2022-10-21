@@ -63,16 +63,15 @@ function companyLogIn(email, password,setInvalidAccount, navigate){
         email: email,
         password: password,
     })
-        .then(function (response) {
-            localStorage.setItem('token',response.data.token)
-            localStorage.setItem('me',JSON.stringify(response.data.company))
-            console.log(response.data)
-            return (response.data)
-        })
-        .catch(function (error) {
-            setInvalidAccount(true)
-            console.log(error);
-        });
+    .then(function (response) {
+        localStorage.setItem('token',response.data.token)
+        localStorage.setItem('me',JSON.stringify(response.data.company))
+        return (response.data)
+    })
+    .catch(function (error) {
+        setInvalidAccount(true)
+        console.log(error);
+    });
 }
 function apply(id){
     axios.put(`${baseURL}/users/apply`, {job_id:id}, config)

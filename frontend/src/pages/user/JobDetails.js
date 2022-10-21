@@ -8,10 +8,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faSuitcase, faBell } from '@fortawesome/free-solid-svg-icons'
 import {apply} from '../../api';
 function JobDetails(){
+    const me= JSON.parse(localStorage.me) 
+    const applications =me.applications
+    const [applied, setapplied]=useState(false)
     const { state } = useLocation();
+    console.log(state.job)
+    useEffect(() => {
+        if(applications.includes(state.job._id)){
+            setapplied(true)
+        }
+    }, []);
     const handleClick=(e)=>{
         e.preventDefault()
-        apply(state.job._id)
+        if(! applications.includes(state.job._id)){
+            apply(state.job._id)
+            setapplied(true)
+        }
     }
     return (
         <>
@@ -24,7 +36,7 @@ function JobDetails(){
                         <FontAwesomeIcon icon={faSuitcase} className='suitCase'/>
                         <p>{state.job.employment_type}</p>
                     </div>
-                    <button className='easy-apply-btn' onClick={handleClick}>Easy Apply</button>
+                    <button className='easy-apply-btn' onClick={handleClick}>{applied? 'Applied':'Easy Apply'}</button>
                     <h3>Job Description</h3>
                     <p>{state.job.details}</p>
                 </div>
