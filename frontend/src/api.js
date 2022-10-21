@@ -66,6 +66,7 @@ function companyLogIn(email, password,setInvalidAccount, navigate){
     .then(function (response) {
         localStorage.setItem('token',response.data.token)
         localStorage.setItem('me',JSON.stringify(response.data.company))
+        navigate('/company-home')
         return (response.data)
     })
     .catch(function (error) {
