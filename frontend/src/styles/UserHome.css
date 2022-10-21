@@ -180,7 +180,7 @@ hr{
     line-height: 0.5; 
     font-size: 12px;
 }
-.add-modal{
+  .add-modal{
     position: fixed; 
     z-index: 100; 
     left: 0;
