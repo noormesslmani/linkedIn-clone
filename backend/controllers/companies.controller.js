@@ -30,7 +30,7 @@ const getJobs= async (req, res) => {
     console.log(req.company.email)
     try{
         const company = await Company.findOne({ email: req.company.email }).populate("jobs")
-        res.json(company);
+        res.json(company.jobs);
     }catch(err){
         console.log(req);
         res.status(400).json({
@@ -45,7 +45,7 @@ const getApplicants=async (req, res) => {
             path:'jobs',
             populate: { path: 'applicants' }
         })
-        res.json(company);
+        res.json(company.jobs);
     }catch(err){
         console.log(req);
         res.status(400).json({
