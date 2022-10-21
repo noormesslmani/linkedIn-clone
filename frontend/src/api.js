@@ -120,12 +120,12 @@ function displayCompanies(setCompanies){
     });
 }
 
-function displayJobs(){
+function displayJobs(setJobs){
     axios.get(`${baseURL}/companies/jobs`, config)
     .then(function (response) {
     
         localStorage.setItem('jobs',JSON.stringify(response.data))
-        // setJobs(response.data)
+        setJobs(response.data)
         return (response.data)
     })
     .catch(function (error) {
@@ -161,10 +161,11 @@ function unfollowCompany(id, setFollow){
 
 }
 
-function createJob(){
-    axios.post(`${baseURL}/companies/`, {}, config)
+function createJob(title, type, experience, description){
+    axios.post(`${baseURL}/companies/`, {title: title, employment_type:type, experience:experience, details: description}, config)
     .then(function (response) {
         console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data.company))
         return (response.data)
     })
     .catch(function (error) {
@@ -185,5 +186,6 @@ export{
     unfollowCompany,
     registerCompany,
     companyLogIn,
-    displayJobs
+    displayJobs,
+    createJob
 }

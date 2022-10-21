@@ -28,7 +28,7 @@ export default function CompanyCard({company}){
             <div className='company-details'>
                 <img src={image} className='company-img' ></img>
                 <div className='company-info'>
-                    <h5 className='info title'>{company.name}</h5>
+                    <h4 className='info'>{company.name}</h4>
                     <p className='info'>{company.city}, {company.country}</p>
                 </div>
                 <button className='follow-company' onClick={handleClick}>{follow?'Following':'Follow'}</button>
