@@ -18,7 +18,7 @@ export default function JobCard({job}){
                 </div>
             </div>
             <div className='applicants-row'>
-                <h4>Job description</h4>
+                <h3>Job description</h3>
                 <button className='applicants-btn'>View Applicants</button>
             </div>
             <p className='job-details'>{job.details}</p>

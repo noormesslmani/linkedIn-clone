@@ -46,7 +46,7 @@ function CompanyHome(){
         <>
             <NavCompany/>
             <section className='main-section'>
-                <h1>Jobs list</h1>
+                <h1 className='title'>Jobs list</h1>
                 
                 <div className='jobs-container'>
                     <FontAwesomeIcon icon={faCirclePlus} className='add-job' onClick={addJob} />
