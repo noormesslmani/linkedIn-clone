@@ -1,0 +1,302 @@
+.nav-bar{
+    padding: 7px 200px 7px 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    height: 20px;
+}
+.right-side, .left-side{
+    display: flex;
+}
+.logonav{
+    width:40px;
+    height: 40px;
+}
+.icon{
+    width:20px;
+    height: 20px;
+    margin: 0px 20px;
+    color:  #666;
+    cursor: pointer;
+}
+.icon:hover{
+    color: black;
+}
+.search-input{
+    width:300px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color:#eef3f8;
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+}
+
+.me-img{
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    margin: 0px 20px;
+}
+.job-card{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin:10px;
+    cursor: pointer;
+}
+.jobs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color:  #f3f2ef;
+}
+.job-img{
+    width:100px;
+    height: 100px;
+}
+.job-list{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 20px;
+}
+.company-info{
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    font-size: 13px;
+    display: block;
+    line-height: 1px;
+}
+.title{
+    font-size: 15px;
+}
+.description{
+    display: flex;
+}
+hr{
+   width: 95%;
+   align-self: center;
+   margin-top: 20px;
+}
+.job-description{
+    background-color: white;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.suitCase{
+    margin-right: 10px;
+    align-self: center;
+}
+.employment-type{
+    display: flex;
+}
+.easy-apply-btn{
+    background-color:  #006097;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width:150px;
+    height: 40px;
+    margin:20px 0px;
+}
+.easy-apply-btn:active{
+    scale: 0.9;
+}
+/*profile*/
+.header{
+    position: relative;
+    background-color: white;
+    width:750px;
+    display: flex;
+    flex-direction: column; 
+    border: none;
+    border-radius: 20px; 
+    margin: 5px;
+}
+.cover-photo{
+    height: 300px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+}
+.profile-photo{
+    position: absolute;
+    z-index: 10;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top:220px;
+    left:60px;
+}
+.full_name{
+    margin-top: 80px;
+    margin-left: 30px;
+}
+.education, .experience, .skills{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width:750px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 20px; 
+    margin: 5px;
+}
+.experience-row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.add-experience{
+    width: 40px;
+    height: 40px;
+    color: grey;
+    align-self: center;
+    cursor: pointer;
+}
+.exp-details{
+    display: flex;
+    margin: 10px 0px;
+}
+.written-details{
+    display: block;
+    line-height: 0.5; 
+    font-size: 12px;
+}
+  .add-modal{
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgb(0, 0, 0); 
+    background-color: rgba(0, 0, 0, 0.4); 
+    display: flex;
+  }
+  .content{
+    align-self: center;
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 50%; 
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .exp-details-row>label{
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .exp-details-row{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5px;
+  }
+  .input{
+    height: 25px;
+  }
+  .label{
+    color: gray;
+  }
+  .date-details{
+    display: flex;
+    width:90%;
+  }
+  .date-details-row{
+    display: flex;
+    width:100%;
+  }
+  .date-details-row>*{
+    width:50%;
+  }
+  .modal-btns{
+    margin-top:20px;
+  }
+  .modal-submit-btn{
+    background: #006097;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: white;
+    cursor: pointer;
+  }
+  .companies{
+    background-color:#f3f2ef;
+    padding:30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .companies-container{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .company-img{
+    width: 100px;
+    height: 100px;
+    
+  }
+  .company-card{
+    width:150px;
+    height: fit-content;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.3));
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .company-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+  }
+  .company-info{
+    display: block;
+    line-height: 0.5;
+  }
+  .company-info>*{
+    align-items: center;
+  }
+  .follow-company{
+    background: #006097;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: white;
+    cursor: pointer;
+  }
