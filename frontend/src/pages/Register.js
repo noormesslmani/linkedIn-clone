@@ -6,9 +6,7 @@ import ButtonSignup from '../components/ButtonSignup';
 import {registerUser, registerCompany} from '../api';
 import image from '../assets/landing-img.svg'
 import logo from '../assets/Linkedin-Logo.png'
-import { type } from '@testing-library/user-event/dist/type';
 function Register() {
-  const { state } = useLocation();
   const [page,setPage]=useState('one');
   const [buttonLabel,setButtonLabel]=useState('Agree & Join');
   const [placeholders,setPlaceholders]=useState(['Email','Password(8+ characters)']);
@@ -25,7 +23,7 @@ function Register() {
   const [passwordLength,setPasswordLength]=useState(false);
   const [enterFirstName,setEnterFirstName]=useState(false);
   const [enterLastName,setEnterLastName]=useState(false);
-
+  const [type, setType]=useState('person')
   const handleClick=(e)=>{
     e.preventDefault()
 
@@ -42,14 +40,14 @@ function Register() {
       else
       {
         setPage('two')
-        if(state.type=='person' ){
+        if(type=='person' ){
           setPlaceholders(['firstName','LastName'])}
         else{
           setPlaceholders(['Name','City', 'Country'])
         }
       }
     }
-    else if(state.type=='person' && page=='two'){
+    else if(type=='person' && page=='two'){
       if(firstname==''){
         setEnterFirstName(true)
       }
@@ -60,7 +58,7 @@ function Register() {
         registerUser(email, password, firstname, lastname, setTakenEmail)
       }
     }
-    else if(state.type=='company' && page=='two'){
+    else if(type=='company' && page=='two'){
       registerCompany(email, password, name, city,country, setTakenEmail)
     }
     
@@ -81,8 +79,8 @@ function Register() {
                   {enterFirstName?<p className='error-msg'>Please enter your firstname</p>:<></>}
                   {enterLastName?<p className='error-msg'>Please enter your lastname</p>:<></>}
                   {passwordLength?<p className='error-msg'>Password must be 8 characters or more</p>:<></>}
-                    <InputSignup placeholders={placeholders} page={page} setEmail={setEmail} setPassword={setPassword} setFirstname={setFirstname} setLastname={setLastname} type={state.type}
-                    setName={setName} setCity={setCity} setCountry={setCountry} />
+                    <InputSignup placeholders={placeholders} page={page} setEmail={setEmail} setPassword={setPassword} setFirstname={setFirstname} setLastname={setLastname} setType={setType}
+                    setName={setName} setCity={setCity} setCountry={setCountry} type={type} />
                     <ButtonSignup handleClick={handleClick} buttonLabel={buttonLabel} />
                     <div className='switch-to-signin'>Already on LinkedIn? <Link className='signin-link' to={'/user-signin'}>Sign in</Link></div>
                 </form>
