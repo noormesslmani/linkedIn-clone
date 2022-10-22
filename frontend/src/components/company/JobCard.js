@@ -13,7 +13,7 @@ export default function JobCard({job}){
             <div className='description'>
                 <img src={image} className='job-img' ></img>
                 <div className='info'>
-                    <FontAwesomeIcon icon={faSuitcase} className='icon' />
+                    <FontAwesomeIcon icon={faSuitcase} className='suitcase' />
                     <p>{job.employment_type} . {job.experience}</p>
                 </div>
             </div>
@@ -26,3 +26,4 @@ export default function JobCard({job}){
         </div> 
     )
 }
+
