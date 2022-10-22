@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const authMiddleware = require('../middlewares/auth.user.middleware');
-const {unfollowCompany, updateUser, getUsers, me, updateExperience, updateEducation, updateSkills, apply,getApplications,getUser,followCompany,getFollowingJobs, getCompanies} = require('../controllers/users.controller')
+const {getNotifications, unfollowCompany, updateUser, getUsers, me, updateExperience, updateEducation, updateSkills, apply,getApplications,getUser,followCompany,getFollowingJobs, getCompanies} = require('../controllers/users.controller')
 const router = Router();
 
 router.put('/',authMiddleware, updateUser);
@@ -12,7 +12,7 @@ router.put('/apply', authMiddleware,apply);
 router.get('/applications',authMiddleware, getApplications);
 
 router.get('/jobs',authMiddleware, getFollowingJobs);
-
+router.get('/notifications',authMiddleware, getNotifications);
 
 router.put('/follow-company',authMiddleware, followCompany);
 router.put('/unfollow-company',authMiddleware, unfollowCompany);

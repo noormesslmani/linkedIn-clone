@@ -153,6 +153,20 @@ const getFollowingJobs = async (req, res) => {
     }
 };
 
+const getNotifications = async (req, res) => {
+    try{
+        const user = await User.findOne({ email: req.user.email }).populate({
+            path:'notifications',
+            populate: { path: 'company' }
+        }).select('notifications');
+        res.json(user.notifications);
+    }catch(err){
+        res.status(400).json({
+            message: err.message
+        })
+    }
+};
+
 
 module.exports = {
     updateUser,
@@ -167,7 +181,8 @@ module.exports = {
     getFollowingJobs,
     me,
     getCompanies,
-    unfollowCompany
+    unfollowCompany,
+    getNotifications
 }
 
 
