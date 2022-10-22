@@ -7,12 +7,17 @@ import me from '../assets/blank-profile.webp'
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Notifications from './user/Notifications';
+import {getNotifications} from '../api';
 export default function NavUser(){
     const navigate= useNavigate()
+    const [notifications,setNotifications]=useState([]);
     const handleExit=()=>{
         localStorage.clear()
         navigate('/')
     }
+    useEffect(()=>{
+        getNotifications(setNotifications)
+    }, [])
     return( 
         <nav className='nav-bar'>
             <div className='right-side'>
@@ -23,7 +28,7 @@ export default function NavUser(){
                 <Link to='/user-companies'><FontAwesomeIcon icon={faUserGroup} className='icon' /></Link>
                 <Link to='/user-home'><FontAwesomeIcon icon={faSuitcase} className='icon' /></Link>
                 <Link to='/user-profile'><img src={me} className='me-img'></img></Link>
-                <Notifications/>
+                <Notifications notifications={notifications}/>
                 <FontAwesomeIcon icon={faSignOut} className='icon' onClick={handleExit} />
             </div>
         </nav> 

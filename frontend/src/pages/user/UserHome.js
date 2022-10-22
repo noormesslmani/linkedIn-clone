@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import NavUser from '../../components/NavUser';
 import JobCard from '../../components/user/JobCard';
 import axios from 'axios';
+
 const baseURL='http://localhost:3000'
 function UserHome(){
     const [jobs,setJobs]=useState([]);
@@ -19,7 +20,7 @@ function UserHome(){
         .catch(function (error) {
             console.log(error);
         });
-    }, []);
+    },[]);
   
     return (
         <>

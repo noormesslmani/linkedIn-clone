@@ -318,11 +318,14 @@ hr{
     overflow: visible;
     position: absolute;
     top: 50px;
-    left: -80px;
-    width: 240px;
+    left: -110px;
+    width: 280px;
     color: #444;
     z-index: 2;
-    /* display: none; */
+    display: none;
+  }
+  .show{
+    display: block;
   }
   .noti-container:before {
     content: '';
@@ -337,8 +340,8 @@ hr{
     /* margin-left: 115px; */
   }
   .noti-image{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 5px;
     border-radius: 50%;
   }
@@ -402,5 +405,8 @@ hr{
     width:100px;
     z-index: 1;
     height: fit-content;
+  }
+  li{
+    line-height: 0.5;
   }
   

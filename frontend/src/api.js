@@ -173,7 +173,18 @@ function createJob(title, type, experience, description){
     });
 
 }
+function getNotifications(setNotifications){
+    axios.get(`${baseURL}/users/notifications`, config)
+    .then(function (response) {
+        console.log(response.data)
+        setNotifications(response.data)
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
+}
 
 export{
     userLogIn,
@@ -187,5 +198,6 @@ export{
     registerCompany,
     companyLogIn,
     displayJobs,
-    createJob
+    createJob,
+    getNotifications
 }
