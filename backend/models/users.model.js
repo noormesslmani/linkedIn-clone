@@ -128,12 +128,6 @@ const userSchema = new mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Company"
         }
-    ],
-    users_follow: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User"
-        }
     ]
 })
 

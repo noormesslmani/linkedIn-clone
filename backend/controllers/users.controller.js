@@ -75,14 +75,6 @@ const updateSkills = async (req, res) => {
     .catch((err)=>res.status(400).json(err))
 }
 
-const followUser= async(req,res)=>{
-    const data = req.body 
-    User.findOneAndUpdate({ email: req.user.email },{
-        $push:{ users_follow: data.user_id} 
-    })
-    .then((user)=>res.json(user))
-    .catch((err)=>res.status(400).json(err))
-}
 const followCompany= async(req,res)=>{
     const data = req.body 
     User.findOneAndUpdate({ email: req.user.email },{
@@ -160,17 +152,13 @@ const getFollowingJobs = async (req, res) => {
     }
 };
 
-// const company= async(req,res)=>{
-//     const user =User.find({ "companies_follow.id": { "$in": ["634a691afbd0d5957d2a22dd"] } })
-//     res.json(user);
-// }
+
 module.exports = {
     updateUser,
     getUsers,
     getUser,
     updateExperience,
     updateEducation,
-    followUser,
     updateSkills,
     apply,
     getApplications,
