@@ -3,7 +3,7 @@ const baseURL='http://localhost:3000'
 let config = {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}`},
 };
-
+//user registration
 function registerUser(email, password, firstname, lastname,setTakenEmail){
     axios.post(`${baseURL}/auth/user-signup`, {
         email: email,
@@ -22,6 +22,7 @@ function registerUser(email, password, firstname, lastname,setTakenEmail){
             console.log(error);
         });
 }
+//company registration
 function registerCompany(email, password, name, city,country, setTakenEmail){
     axios.post(`${baseURL}/auth/company-signup`, {
         email: email,
@@ -41,6 +42,7 @@ function registerCompany(email, password, name, city,country, setTakenEmail){
             console.log(error);
         });
 }
+//user login
 function userLogIn(email, password,setInvalidAccount, navigate){
     axios.post(`${baseURL}/auth/user-login`, {
         email: email,
@@ -58,6 +60,7 @@ function userLogIn(email, password,setInvalidAccount, navigate){
             console.log(error);
         });
 }
+//company login
 function companyLogIn(email, password,setInvalidAccount, navigate){
     axios.post(`${baseURL}/auth/company-login`, {
         email: email,
@@ -74,16 +77,18 @@ function companyLogIn(email, password,setInvalidAccount, navigate){
         console.log(error);
     });
 }
+//user apply for a job
 function apply(id){
     axios.put(`${baseURL}/users/apply`, {job_id:id}, config)
-        .then(function (response) {
-            console.log(response.data)
-            return (response.data)
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    .then(function (response) {
+        console.log(response.data)
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
+//user add experience
 function addExperience(title, type,company,startMonth,startYear,endMonth,endYear,location,industry){
     axios.put(`${baseURL}/users/experience`, {title: title, employment_type: type,company_name: company,start_month: startMonth,start_year: startYear,end_month: endMonth,end_year: endYear,location: location,industry: industry}
     , config)
@@ -96,6 +101,7 @@ function addExperience(title, type,company,startMonth,startYear,endMonth,endYear
         console.log(error);
     });
 }
+//user add education
 function addEducation(school, degree,field,startMonth,startYear,endMonth,endYear,grade){
     axios.put(`${baseURL}/users/education`, {school: school, degree: degree, field: field,start_month: startMonth,start_year: startYear,end_month: endMonth,end_year: endYear,grade: grade}
     , config)
@@ -108,6 +114,7 @@ function addEducation(school, degree,field,startMonth,startYear,endMonth,endYear
         console.log(error);
     });
 }
+//user display companies
 function displayCompanies(setCompanies){
     axios.get(`${baseURL}/users/companies`, config)
     .then(function (response) {
@@ -119,7 +126,7 @@ function displayCompanies(setCompanies){
         console.log(error);
     });
 }
-
+//user display jobs
 function displayJobs(setJobs){
     axios.get(`${baseURL}/companies/jobs`, config)
     .then(function (response) {
@@ -132,7 +139,7 @@ function displayJobs(setJobs){
         console.log(error);
     });
 }
-
+//user follow company
 function followCompany(id, setFollow){
     axios.put(`${baseURL}/users/follow-company`, {company_id: id}
     , config)
@@ -146,6 +153,7 @@ function followCompany(id, setFollow){
         console.log(error);
     });
 }
+//user unfollow company
 function unfollowCompany(id, setFollow){
     axios.put(`${baseURL}/users/unfollow-company`, {company_id: id}
     , config)
@@ -158,9 +166,8 @@ function unfollowCompany(id, setFollow){
     .catch(function (error) {
         console.log(error);
     });
-
 }
-
+//company create new job
 function createJob(title, type, experience, description){
     axios.post(`${baseURL}/companies/`, {title: title, employment_type:type, experience:experience, details: description}, config)
     .then(function (response) {
@@ -171,8 +178,8 @@ function createJob(title, type, experience, description){
     .catch(function (error) {
         console.log(error);
     });
-
 }
+//user get notifications
 function getNotifications(setNotifications){
     axios.get(`${baseURL}/users/notifications`, config)
     .then(function (response) {
@@ -184,6 +191,7 @@ function getNotifications(setNotifications){
         console.log(error);
     });
 }
+//user add skills
 function addSkill(skill){
     axios.put(`${baseURL}/users/skills`, {skill:skill},config)
     .then(function (response) {
