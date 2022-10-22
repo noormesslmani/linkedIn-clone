@@ -77,6 +77,7 @@ const updateSkills = async (req, res) => {
 
 const followCompany= async(req,res)=>{
     const data = req.body 
+    await Company.findByIdAndUpdate(data.company_id,{ $push:{ users_follow: req.user._id} })
     User.findOneAndUpdate({ email: req.user.email },{
         $push:{ companies_follow: data.company_id} 
     }, { new: true })

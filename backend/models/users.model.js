@@ -128,6 +128,12 @@ const userSchema = new mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Company"
         }
+    ],
+    notifications: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Job"
+        }
     ]
 })
 
