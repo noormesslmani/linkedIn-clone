@@ -24,7 +24,7 @@ export default function Notifications({notifications}){
                     {notifications.map((notification)=>
                         <li class="noti-text">
                             <img src={imageNotification} className='noti-image' />
-                            <p>{notification.company[0].name} posted a new job "{notification.title}"</p>
+                            <p><span className='noti-company'>{notification.company[0].name}</span> posted a new job opening <span className='noti-company'>{notification.title}</span> </p>
                         </li>)
                     }
                 </ul>

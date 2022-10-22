@@ -17,7 +17,7 @@ export default function NavUser(){
     }
     useEffect(()=>{
         getNotifications(setNotifications)
-    }, [])
+    })
     return( 
         <nav className='nav-bar'>
             <div className='right-side'>

@@ -31,8 +31,7 @@ function UserHome(){
                 {jobs.map((job)=><JobCard job={job} />)} 
             </div>  
         </section>
-        </>
-        
+        </> 
     );
 }
 export default UserHome;

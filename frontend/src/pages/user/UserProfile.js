@@ -11,6 +11,7 @@ import profile from '../../assets/blank-profile.webp'
 import image from '../../assets/original.png';
 import AddExp from '../../components/user/ExpModal';
 import AddEdu from '../../components/user/EduModal';
+import AddSkill from '../../components/user/SkillsModal';
 function UserProfile(){
     const info = JSON.parse(localStorage.me)
     const experience= info.experience
@@ -18,13 +19,16 @@ function UserProfile(){
     const skills= info.skills
     const [showExpModal, setShowExpModal]=useState(false)
     const [showEduModal, setShowEduModal]=useState(false)
+    const [showSkillModal, setShowSkillModal]=useState(false)
     const handleEdu=()=>{
         setShowEduModal(true)
     }
     const handleExp=()=>{
         setShowExpModal(true)
     }
-    const handleSkills=()=>{}
+    const handleSkills=()=>{
+        setShowSkillModal(true)
+    }
     return (
         <>
             <NavUser/>
@@ -88,6 +92,7 @@ function UserProfile(){
             </section>
             {showExpModal?<AddExp setShowExpModal={setShowExpModal}/>:<></>}
             {showEduModal?<AddEdu setShowEduModal={setShowEduModal}/>:<></>}
+            {showSkillModal?<AddSkill setShowSkillModal={setShowSkillModal}/>:<></> }
         </>
         
     );

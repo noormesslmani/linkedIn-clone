@@ -183,7 +183,17 @@ function getNotifications(setNotifications){
     .catch(function (error) {
         console.log(error);
     });
-
+}
+function addSkill(skill){
+    axios.put(`${baseURL}/users/skills`, {skill:skill},config)
+    .then(function (response) {
+        console.log(response.data)
+        localStorage.setItem('me',JSON.stringify(response.data))
+        return (response.data)
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 }
 
 export{
@@ -199,5 +209,6 @@ export{
     companyLogIn,
     displayJobs,
     createJob,
-    getNotifications
+    getNotifications,
+    addSkill
 }

@@ -409,4 +409,8 @@ hr{
   li{
     line-height: 0.5;
   }
+  .noti-company{
+    font-weight: bold;
+    color: rgb(77, 77, 77);
+  }
   

@@ -10,6 +10,7 @@ export default function AddEdu({setShowEduModal}) {
     const [endMonth, setEndMonth]=useState('')
     const [endYear, setEndYear]=useState('')
     const [grade, setGrade]=useState('')
+    const [missingFields, setMissingFields]=useState(false)
     const handleSchool=(e)=>{
         setSchool(e.target.value)
     }
@@ -39,10 +40,16 @@ export default function AddEdu({setShowEduModal}) {
         e.preventDefault()
         if(school!=''){
             addEducation(school, degree, field,startMonth,startYear,endMonth,endYear, grade);
+            setMissingFields(false)
+            setShowEduModal(false)
+        }
+        else{
+            setMissingFields(true)
         }
     }
     const handleCancel=(e)=>{
         e.preventDefault()
+        setMissingFields(false)
         setShowEduModal(false)
     }
     return(
@@ -83,6 +90,7 @@ export default function AddEdu({setShowEduModal}) {
                     <button className='modal-submit-btn' onClick={handleSubmit}>Submit</button>
                     <button className='modal-submit-btn' onClick={handleCancel}>Cancel</button>
                 </div>
+                {missingFields?<p className='error-msg'>Please enter school name</p>:<></>}
             </form>
         </div> 
     )
