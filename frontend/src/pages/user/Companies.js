@@ -8,7 +8,7 @@ function Companies(){
     const [companies,setCompanies]=useState([]);
     useEffect(() => {
         displayCompanies(setCompanies);
-    }, []);
+    });
     return (
         <>
             <NavUser/>

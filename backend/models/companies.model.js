@@ -45,6 +45,12 @@ const companySchema = new mongoose.Schema({
           type: mongoose.Schema.Types.ObjectId,
           ref: "Job"
         }
+    ],
+    users_follow: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User"
+        }
     ]
 })
 

@@ -129,10 +129,10 @@ const userSchema = new mongoose.Schema({
           ref: "Company"
         }
     ],
-    users_follow: [
+    notifications: [
         {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Job"
         }
     ]
 })

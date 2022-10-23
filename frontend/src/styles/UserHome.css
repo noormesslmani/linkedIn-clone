@@ -1,6 +1,7 @@
 .nav-bar{
     padding: 7px 200px 7px 60px;
     display: flex;
+    width: 100vw;
     justify-content: space-between;
     margin-bottom: 50px;
     box-sizing: border-box;
@@ -14,8 +15,8 @@
     height: 40px;
 }
 .icon{
-    width:20px;
-    height: 20px;
+    width:25px;
+    height: 25px;
     margin: 0px 20px;
     color:  #666;
     cursor: pointer;
@@ -300,3 +301,116 @@ hr{
     color: white;
     cursor: pointer;
   }
+  /**********************************/
+  
+  .noti-count {
+    font-size: 14px;
+    position: absolute;
+    left:40px;
+    z-index: 1;
+    top:-15px;
+    color: #006097;
+  }
+  .noti-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px gray;
+    overflow: visible;
+    position: absolute;
+    top: 50px;
+    left: -110px;
+    width: 280px;
+    color: #444;
+    z-index: 2;
+    display: none;
+  }
+  .show{
+    display: block;
+  }
+  .noti-container:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid #000;
+    border-color: transparent transparent #fff;
+    /* margin-top: -20px; */
+    /* margin-left: 115px; */
+  }
+  .noti-image{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 50%;
+  }
+  .noti-title {
+    /* display: none; */
+    width: 90%;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid #ddd;
+    position: relative;
+    z-index: 100;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    font-variant: normal;
+    color: #777;
+  }
+  .new-noti-title {
+    text-align: center;
+    line-height: 30px;
+  }
+  .noti-count {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-size: 10px;
+    line-height: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .noti-body {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 220px;
+    overflow: auto;
+  }
+  .noti-text {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    color: #777;
+    width: 90%;
+    padding: 5%;
+    line-height: 25px;
+    background-color: #00609711;
+    border-bottom: 1px solid #ddd;
+  }
+  .has-read {
+    background-color: #fff;
+  }
+  .notification-wrap{
+    position: relative;
+    width:100px;
+    z-index: 1;
+    height: fit-content;
+  }
+  li{
+    line-height: 0.5;
+  }
+  .noti-company{
+    font-weight: bold;
+    color: rgb(77, 77, 77);
+  }
+  
