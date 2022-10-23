@@ -2,7 +2,7 @@ const User = require('../models/users.model');
 const Job = require('../models/jobs.model');
 const Company = require('../models/companies.model');
 const bcrypt = require('bcrypt');
-const { json } = require('express');
+
 
 const updateUser = async (req, res) => {
     const {data} = req.body

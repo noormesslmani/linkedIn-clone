@@ -1,8 +1,7 @@
 const User = require('../models/users.model');
 const Company = require('../models/companies.model');
 const Job = require('../models/jobs.model');
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
+
 
 
 const createJob = async (req, res) => {
@@ -16,8 +15,8 @@ const createJob = async (req, res) => {
         job.details= details,
         await job.save();
         await Job.findByIdAndUpdate(job._id,{$push:{company:req.company._id}} )
-        const company = await Company.findOneAndUpdate({ email: req.company.email },{$push:{jobs:job._id} }, { new: true });
         await User.updateMany({ companies_follow : { $all: [ req.company._id ] } }, {$push:{ notifications : job._id}} )
+        const company = await Company.findByIdAndUpdate(req.company._id,{$push:{jobs:job._id} }, { new: true });
         res.json(company);
     }catch(err){
         res.status(400).json({
@@ -30,7 +29,7 @@ const createJob = async (req, res) => {
 const getJobs= async (req, res) => {
     console.log(req.company.email)
     try{
-        const company = await Company.findOne({ email: req.company.email }).populate("jobs")
+        const company = await Company.findById(req.company._id).populate("jobs")
         res.json(company.jobs);
     }catch(err){
         console.log(req);
@@ -42,7 +41,7 @@ const getJobs= async (req, res) => {
  
 const getApplicants=async (req, res) => {
     try{
-        const company = await Company.findOne({ email: req.company.email }).populate({
+        const company = await Company.findById(req.company._id).populate({
             path:'jobs',
             populate: { path: 'applicants' }
         })
