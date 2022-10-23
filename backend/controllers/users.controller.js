@@ -78,6 +78,9 @@ const updateSkills = async (req, res) => {
 
 const followCompany= async(req,res)=>{
     const data = req.body 
+    if( await User.exists({_id: req.user._id, companies_follow : { $all: [ data.company_id ] }}))
+    {return res.status(400).json('Company followed')}
+    
     await Company.findByIdAndUpdate(data.company_id,{ $push:{ users_follow: req.user._id} })
     await User.findByIdAndUpdate(req.user._id,{
         $push:{ companies_follow: data.company_id} 
