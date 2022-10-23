@@ -123,6 +123,8 @@ const getUser= async (req, res) => {
 
 const apply= async (req, res) => {
     const data = req.body 
+    if( await User.exists({_id: req.user._id, applications : { $all: [ data.job_id ] }}))
+    {return res.status(400).json('Already applied')}
     await Job.findByIdAndUpdate(data.job_id,{
         $push:{ applicants: req.user._id} 
     })
