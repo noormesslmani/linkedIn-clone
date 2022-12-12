@@ -50,7 +50,7 @@ export default function InputSignup({page, placeholders, setEmail, setPassword, 
             <input className='input-signup' id='input2' placeholder={placeholders[1]} onChange={handlechangesecond}></input>
             {type=='company'? page=='two'?<input className='input-signup' id='input3' placeholder={placeholders[2]} onChange={handlechangethird}></input>:<></>:<></>}
             {page=='one'? <div className='signin-usertype'>
-                <div>Sign in as:</div>
+                <div>Register as:</div>
                 <input type='radio' value="person" name="user-type" defaultChecked onChange={handleUser} />
                 <label>Person</label>
                 <input type='radio' value="company" name="user-type" onChange={handleUser}/>
