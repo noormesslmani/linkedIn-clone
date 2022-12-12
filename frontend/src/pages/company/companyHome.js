@@ -17,7 +17,8 @@ function CompanyHome(){
     const [newJob, setnewJob]=useState(false)
     useEffect(() => {
         displayJobs(setJobs);
-    });
+    },[]);
+    
     console.log(jobs)
     const addJob=()=>{
         setJobModal(true)
